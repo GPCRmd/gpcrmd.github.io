@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://localhost:8000/dynadb/protein/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GPCRdb</title>
+
+    <!-- Bootstrap -->
+    <link href="protein_files/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link href="protein_files/style.css" rel="stylesheet">
+
+    <!-- Additional CSS -->
+    
+
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:8000/" alt="GPCRdb"><img src="protein_files/main.png" class="main-logo"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+              <li>
+            <a href="http://localhost:8000/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                GPCRdb<span class="caret"></span>
+        </a>
+            <ul class="dropdown-menu" role="menu">
+                <li class="nav-header disabled"><a>INFORMATION</a></li>
+                <li><a href="http://files.gpcrdb.org/GPCRdb_Poster.pdf">GPCRdb Poster</a></li>
+                <li><a href="http://docs.gpcrdb.org/">Documentation</a></li>
+                <li class="nav-header disabled"><a>ABOUT GPCRdb</a></li>
+                <li><a href="http://docs.gpcrdb.org/about.html">About</a></li>
+                <li><a href="http://docs.gpcrdb.org/contact.html">Contact</a></li>
+                <li><a href="http://docs.gpcrdb.org/citing.html">Citing GPCRdb</a></li>
+                <li><a href="http://docs.gpcrdb.org/acknowledgements.html">Acknowledgements</a></li>
+                <li><a href="http://docs.gpcrdb.org/legal_notice.html">Legal notice</a></li>
+                <li class="nav-header disabled"><a>UPDATES</a></li>
+                <li><a href="http://localhost:8000/news">News</a></li>
+                <li><a href="http://docs.gpcrdb.org/meetings.html">Meetings</a></li>
+                <li><a href="http://localhost:8000/pages/releasenotes">Release notes</a></li>
+                <li class="nav-header disabled"><a>FOR DEVELOPERS</a></li>
+                <li><a href="http://docs.gpcrdb.org/linking.html">Linking to GPCRdb</a></li>
+                <li><a href="http://docs.gpcrdb.org/web_services.html">Web services</a></li>
+            </ul>
+        </li>
+        
+        <!-- RECEPTORS -->
+        <li><a href="http://localhost:8000/protein">Receptors</a></li>
+       
+        <!-- SEQUENCES -->
+        <li>
+            <a href="http://localhost:8000/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Sequences<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li class="nav-header disabled"><a>DATA</a></li>
+                <li><a href="http://localhost:8000/alignment/targetselection">Structure-based alignments</a></li>
+                <li class="nav-header disabled"><a>TOOLS</a></li>
+                <li><a href="http://localhost:8000/phylogenetic_trees/targetselection">Phylogenetic trees</a></li>
+                <li><a href="http://localhost:8000/similaritysearch/referenceselection">Similarity search - GPCRdb</a></li>
+                <li><a href="http://localhost:8000/alignment/blastsearch">Similarity search - BLAST</a></li>
+                <li><a href="http://localhost:8000/similaritymatrix/targetselection">Similarity matrix</a></li>
+            </ul>
+        </li>
+        
+        <!-- STRUCTURES -->
+        <li>
+            <a href="http://localhost:8000/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Structures<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li class="nav-header disabled"><a>DATA</a></li>
+                <li><a href="http://localhost:8000/structure">Structure browser</a></li>
+                <li><a href="http://localhost:8000/structure/statistics">Structure statistics</a></li>
+                <li class="nav-header disabled"><a>TOOLS</a></li>
+                <li><a href="http://localhost:8000/structure/superposition_workflow_index/true">Structure superposition</a></li>
+                <li><a href="http://localhost:8000/structure/generic_numbering_index">PDB file residue numbering</a></li>
+                <li><a href="http://localhost:8000/structure/template_selection">Template selection</a></li>
+            </ul>
+        </li>
+
+        <!-- MUTATIONS -->
+        <li>
+            <a href="http://localhost:8000/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Mutations<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li class="nav-header disabled"><a>DATA</a></li>
+                <li><a href="http://localhost:8000/mutations">Mutation browser</a></li>
+                <li>
+                    <a href="http://docs.gpcrdb.org/mutations.html#mutation-data-submission">
+                        Mutation data submission
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <!-- SITES -->
+        <li>
+            <a href="http://localhost:8000/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Sites<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li class="nav-header disabled"><a>DATA</a></li>
+                <li><a href="http://localhost:8000/interaction">Ligand interactions</a></li>
+                <li class="nav-header disabled"><a>TOOLS</a></li>
+                <li><a href="http://localhost:8000/sitesearch/targetselection">Site search - manual</a></li>
+                <li><a href="http://localhost:8000/sitesearch/targetselectionpdb">Site search - from PDB complex</a></li>
+                <li><a href="http://localhost:8000/structure/fragment_superposition_index">Pharmacophore generation</a></li>
+            </ul>
+        </li>
+
+        <!-- RESIDUE NUMBERES -->
+        <li>
+            <a href="http://localhost:8000/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Residue numbers<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li class="nav-header disabled"><a>DATA</a></li>
+                <li><a href="http://localhost:8000/residue/residuetable">Residue tables</a></li>
+                <li class="nav-header disabled"><a>TOOLS</a></li>
+                <li><a href="http://localhost:8000/structure/generic_numbering_index">PDB file residue numbering</a></li>
+                <!-- <li><a href="http://www.gpcr.org/7tm/?wicket:bookmarkablePage=:nl.ru.cmbi.mcsis.web.pages.info.UtopiaDocumentGPCRDBPage">GPCR specific PDF reader</a></li> -->
+            </ul>
+        </li>
+
+        <!-- MOLECULAR DYNAMICS DATABASE -->
+        <li class="">
+            <a href="http://localhost:8000/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                GPCRmd<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <!-- <li><a href="http://www.gpcr.org/7tm/?wicket:bookmarkablePage=:nl.ru.cmbi.mcsis.web.pages.info.UtopiaDocumentGPCRDBPage">GPCR specific PDF reader</a></li> -->
+                <li><a href="http://localhost:8000/dynadb/db_inputform/">Simulation submission</a></li>
+                <li><a href="http://docs.gpcrdb.org/external_servers.html">Simulation browser</a></li>
+            </ul>
+        </li>
+
+        <!-- LINKS -->
+        <li>
+            <a href="http://localhost:8000/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Links<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <!-- <li><a href="http://www.gpcr.org/7tm/?wicket:bookmarkablePage=:nl.ru.cmbi.mcsis.web.pages.info.UtopiaDocumentGPCRDBPage">GPCR specific PDF reader</a></li> -->
+                <li><a href="http://docs.gpcrdb.org/linking.html">Linking to GPCRdb</a></li>
+                <li><a href="http://docs.gpcrdb.org/external_servers.html">External GPCR modeling servers</a></li>
+            </ul>
+        </li>
+
+
+        <!-- TUTORIAL -->
+        <li><a href="http://docs.gpcrdb.org/index.html#tutorial">Tutorial</a></li>
+
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+    <div class="container" id="content">
+        
+
+<form method="post" action="http://localhost:8000/dynadb/protein/" enctype="multipart/form-data"><input name="csrfmiddlewaretoken" value="afF8S7UKvaHmulqSeJVQA5hDYM4MvIDo" type="hidden">
+
+ <!-- description column -->
+ <div class="col-md-4">
+
+     <div class="col-md-12 panel panel-primary" style="background-color:blue;text-align:center;color:white;">   
+         <div class="panel-body">
+        	<h3> Simulation Submission<br>Step 1:<br>Protein Information</h3>
+         </div> 
+     </div>
+
+     <!-- main description -->
+     <div class="col-md-12 panel panel-primary">
+         <div class="panel-body">
+            <div style="text-align:center"> 
+             <h4>FILL IN THE PROTEIN FORM</h4>
+	    </div>
+             <p style="text-align: justify;">Fill in the form with the relevant data concerning the receptor involved in the simulation.</p>
+             <p style="text-align: justify;">Proteins information is 
+linked to a canonical sequence obtained from UNIPROTK SWISSPROT and 
+identified by a UNIPROTK accession number (AC).</p> 
+	     <p style="text-align: justify;">Mutated proteins are accepted by 
+specifying wild type UNIPROTKAC and mutated sequence or punctual 
+mutations. Gaps created by insertions and deletions are specified by a 
+hyphen character (‘-’).</p><p style="text-align: justify;">Several 
+proteins can be added in a same submission but at least one must be a 
+G-protein coupled receptor (GPCR) whose sequence must be deposit on 
+GPCRdb. </p>
+
+         </div>
+     </div>
+
+     <!-- link to docs -->
+     <div class="col-md-12 panel panel-primary">
+         <div class="panel-body">
+             <p>For more information on this form, see the <a href="http://docs.gpcrdb.org/receptors.html">docs</a>.
+             </p>
+         </div>
+     </div>
+  </div>
+ <!--   _____________________________________________________________________________________________-->
+
+<!-- middle column -->
+<div class="col-md-7 "> 
+    <!-- filters -->
+  <div class="col-md-12 panel panel-primary"> 
+
+    <div class="panel-body">
+ <!------------------------------------------------------------------------------ middle column -->
+<!--        <h4> <a title="Table containing molecular dynamic metadata"> dyndb_Dynamics Table:</a></h4> <br> -->
+<!--	<div style=display:table;>  -->
+
+ 			<div style="text-align:center">
+             			<h4><br>Receptor sequence details</h4>
+            		</div><br>
+	        <div class="row">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_name"><a title="Name: Recommended name from UNIPROTK. ">Name:</a></label></div>
+			<div class="col-md-6"><input id="id_name" maxlength="60" name="name" style="width:300px" placeholder="e.g. 5-HT1B receptor" type="text"></div>
+		<br></div>
+
+	        <div class="row">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_uniprotkbac"><a title="Uniprotkbac: UNIPROTK Accession Number. This value identifies protein to their cannonical sequences. Use only Accession Numbers for cannonical sequences. Mutations are handled in a different field. ">Uniprotkbac:</a></label></div>
+			<div class="col-md-6"><input id="id_uniprotkbac" maxlength="10" name="uniprotkbac" style="width:300px" placeholder="e.g. P28222" type="text"></div>
+		<br></div>
+			
+	        <div class="row">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_isoform"><a title="Isoform: Isoform number for a UNIPROTK Accession Number. Cannonical sequences have the value '1'.">Isoform:</a></label></div>
+			<div class="col-md-3"><input id="id_isoform" name="isoform" style="width:140px" placeholder="e.g. 1" type="number"></div>
+			<div class="col-md-3" style="margin-left:1.5%"><button style="width:140px;" type="button">Validate </button></div>
+		<br></div>
+	        <div class="row" style="padding:10px 0px 10px 0px">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_receptor"><a title="Receptor: This value must be set if the protein is a GPCR.">Receptor:</a></label></div>
+			<div class="col-md-1"><input id="id_receptor" name="receptor" type="checkbox"></div>
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_is_mutated"><a title="Mutant: This value is TRUE if the protein sequence differs from the one identified at uniprot by “uniprotkac” and “isoform”. Otherwise is set to FALSE.">Mutant:</a></label></div>
+			<div class="col-md-1"><input id="id_is_mutated" name="is_mutated" type="checkbox"></div>
+		<br></div>
+
+	 <!--       <div class="row">
+			<div class="col-md-1"style="height:30px"></div><div class="col-md-3"><label for="id_receptor_id_protein"><a title="“Id” for the “protein” stored in GPCRDB. This value must be set if the protein is a GPCR. Otherwise is set to NULL. Foreign key to “protein”.”id”. ">Receptor id protein:</a></label></div>
+			<div class="col-md-6"><select id="id_receptor_id_protein" name="receptor_id_protein" style="width:300px">
+				<option value="" selected="selected">---------</option>
+				<option value="1">DyndbProtein object</option>
+				<option value="2">DyndbProtein object</option>
+				<option value="3">DyndbProtein object</option>
+			</select></div>
+		<br></div> -->
+
+	        <div class="row">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_id_species"><a title="Species: “Id” from GPCRDB for the specie corresponding to this protein sequence.">Species:</a></label></div>
+			<div class="col-md-6" style="height:30px"><select id="id_id_species" name="id_species" style="width:300px" placeholder="e.g. Homo Sapiens">
+				<option value="" selected="selected">---------</option>
+				<option value="1">Homo Sapiens</option>
+				<option value="2">Other</option>
+			</select></div>
+		<br></div>
+
+	        <div class="row">
+<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_other_names"><a title="Aliases: other names that are obtained from UNIPROTK SWISSPROT.">Aliases:</a></label></div><div class="col-md-6">
+		<textarea cols="40" id="id_other_names" name="other_names" rows="2" style="width:300px" placeholder="e.g. 5-hydroxytryptamine receptor 1B; Serotonin receptor 1B"></textarea></div>
+		</div>
+
+	        <div class="row">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_sequence"><a title="Sequence: sequence of the protein in  IUPAC one letter code with the format specified in ”resletter_to”.">Sequence:</a></label></div>
+			<div class="col-md-6"><textarea cols="40" id="id_sequence" name="sequence" rows="2" style="width:300px" placeholder="e.g. MEEPGAQCAPPPPAGSETWVPQANLSSAPSQNCSAKDYIYQDSISLPWKVLLVMLLALITLATTLSNAFVIATVYRTRKLHTPANYLIASLAVTDLLVSILVMPISTMYTVTGRWTLGQVVCDFWLSSDITCCTASILHLCVIALDRYWAITDAVEYSAKRTPKRAAVMIALVWVFSISISLPPFFWRQAKAEEEVSECVVNTDHILYTVYSTVGAFYFPTLLLIALYGRIYVEARSRILKQTPNRTGKRLTRAQLITDSPGSTSSVTSINSRVPDVPSESGSPVYVNQVKVRVSDALLEKKKLMAARERKATKTLGIILGAFIVCWLPFFIISLVMPICKDACWFHLAIFDFFTWLGYLNSLINPIIYTMSNEDFKQAFHKLIRFKCTS"></textarea></div>
+		<br></div>
+
+		<br>
+		<div class="row" id="PRUEBA">
+			
+ 			<div style="text-align:center">
+             			<h4>Receptor mutations</h4>
+            		</div>
+
+                        <div class="row" id="container">   
+				</div><div id="container">
+					</div><table align="center">
+				<tbody><tr>	<th style="width:80px;text-align:center"><label for="id_resid"><a title="Resid: residue number that its mutated on cannonical protein.">Resid</a></label></th>
+					<th style="width:80px;text-align:center"><label for="id_resletter_from"><a title=" Resletter_from: residue name in IUPAC one letter code that is present on cannonical protein. '-' character is used in case of insertions.">Resletter from</a></label></th>
+					<th style="width:80px;text-align:center"><label for="id_resletter_to"><a title=" Resletter_to: residue name in IUPAC one letter code that is present on mutated protein. '-' character is used in case of deletions, '/' is used in case of missing residues, and 'X' for engineered residues.">Resletter to</a></label></th></tr>
+					<tr><th style="width:80px;text-align:center"></th></tr>
+			 	<tr> 	<td style="padding:5px 5px 5px 5px"><input style="width:140px;" id="id_resid" name="resid" placeholder="e.g. 95" type="number"></td>
+					<td style="padding:5px 5px 5px 5px"><input style="width:140px;" id="id_resletter_from" maxlength="1" name="resletter_from" placeholder="e.g. D" type="text"></td>
+					<td style="padding:5px 5px 5px 5px"><input style="width:140px;" id="id_resletter_to" maxlength="1" name="resletter_to" placeholder="e.g. A" type="text"></td>	
+					<td style="padding:5px 5px 5px 5px"><button style="width:140px;" onclick="addFields()"> + Add mutation </button>	
+				</td></tr>
+				 
+					
+
+			</tbody></table>
+		</div>
+ 	<div class="col-md-6">
+		<p style="margin-right:10%;margin-left:40%;padding:5px 5px 5px 5px"><button style="width:120px;" onclick="addFields()"> Apply mutations </button></p>
+	</div>
+ 	<div class="col-md-6">
+		<p style="margin-right:40%;margin-left:10%;padding:5px 5px 5px 5px"><button style="width:120px;" onclick="addFields()"> Get mutations </button></p>
+		
+		        </div><br>
+</div>
+ 			<div style="text-align:center">
+					<button style="height:30px;width:400px" onclick="addFields()"> + Add protein </button> 
+		        </div> 		
+			<br><br>
+</div>
+
+<!--        <th><input type="submit" value="Submit" /> </th><br>   -->
+
+<!--           <div id="selection-buttons"> -->
+
+      <div class="col-md-12 panel panel-primary">
+  	  <div class="panel-body" id="selection-">
+        	<a id="selection-button" href="http://localhost:8000/dynadb/molecule/" class="btn btn-success btn-lg btn-block has-spinner">
+            <span class="spinner"><i class="fa fa-spinner fa-spin"></i></span> Continue to step 2: Small Molecule Information </a>
+      	  </div>
+  	  <div class="panel-body" id="selection-">
+        	<a id="selection-button" href="http://localhost:8000/dynadb/db_inputform/" class="btn btn-success btn-lg btn-block has-spinner">
+            <span class="spinner"><i class="fa fa-spinner fa-spin"></i></span> Back to index </a>
+      	  </div>
+      </div>
+
+
+   </div>
+
+
+    </form></div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="protein_files/jquery_002.js"></script>
+    <!-- jQueryUI -->
+    <link rel="stylesheet" href="protein_files/jquery-ui.css" type="text/css" media="all">
+    <link rel="stylesheet" href="protein_files/jquery-ui_002.css" type="text/css" media="all">
+    <script src="protein_files/jquery-ui.js"></script>
+    <script src="protein_files/bootstrap.js"></script>
+    <!-- Include custom ajax functions -->
+    
+  
+<link rel="stylesheet" href="protein_files/print.css" type="text/css" media="print">
+<link rel="stylesheet" href="protein_files/toolbar.css" type="text/css">
+
+<!-- Prevent our copy of jQuery from registering as an AMD module on sites that use RequireJS. -->
+<script src="protein_files/jquery_pre.js"></script>
+<script src="protein_files/jquery.js"></script>
+<script src="protein_files/jquery_post.js"></script>
+
+<script src="protein_files/toolbar.js"></script>
+<div id="djDebug" dir="ltr" data-store-id="518de009f66945f3ae2a4d11ffb1a051" data-render-panel-url="/__debug__/render_panel/" style="display: block;" hidden="hidden">
+	<div id="djDebugToolbar" style="" hidden="hidden">
+		<ul id="djDebugPanelList">
+			
+			<li><a id="djHideToolBarButton" href="http://localhost:8000/dynadb/protein/#" title="Hide toolbar">Hide »</a></li>
+			
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtVersionsPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					
+						<a href="http://localhost:8000/dynadb/protein/#" title="Versions" class="VersionsPanel">
+					
+					Versions
+					
+					
+						<br><small>Django 1.9.5</small>
+					
+					
+					
+						</a>
+					
+				</li>
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtTimerPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					
+						<a href="http://localhost:8000/dynadb/protein/#" title="Time" class="TimerPanel">
+					
+					Time
+					
+					
+						<br><small>CPU: 335.32ms (646.68ms)</small>
+					
+					
+					
+						</a>
+					
+				</li>
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtSettingsPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					
+						<a href="http://localhost:8000/dynadb/protein/#" title="Settings from &lt;code&gt;protwis.settings&lt;/code&gt;" class="SettingsPanel">
+					
+					Settings
+					
+					
+						
+					
+					
+					
+						</a>
+					
+				</li>
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtHeadersPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					
+						<a href="http://localhost:8000/dynadb/protein/#" title="Headers" class="HeadersPanel">
+					
+					Headers
+					
+					
+						
+					
+					
+					
+						</a>
+					
+				</li>
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtRequestPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					
+						<a href="http://localhost:8000/dynadb/protein/#" title="Request" class="RequestPanel">
+					
+					Request
+					
+					
+						<br><small>PROTEINview</small>
+					
+					
+					
+						</a>
+					
+				</li>
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtSQLPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					
+						<a href="http://localhost:8000/dynadb/protein/#" title="SQL queries from 0 connections" class="SQLPanel">
+					
+					SQL
+					
+					
+						<br><small>0 queries in 0.00ms</small>
+					
+					
+					
+						</a>
+					
+				</li>
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtStaticFilesPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					
+						<a href="http://localhost:8000/dynadb/protein/#" title="Static files (424 found, 8 used)" class="StaticFilesPanel">
+					
+					Static files
+					
+					
+						<br><small>8 files used</small>
+					
+					
+					
+						</a>
+					
+				</li>
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtTemplatesPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					
+						<a href="http://localhost:8000/dynadb/protein/#" title="Templates (5 rendered)" class="TemplatesPanel">
+					
+					Templates
+					
+					
+						<br><small>dynadb/PROTEIN.html</small>
+					
+					
+					
+						</a>
+					
+				</li>
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtCachePanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					
+						<a href="http://localhost:8000/dynadb/protein/#" title="Cache calls from 1 backend" class="CachePanel">
+					
+					Cache
+					
+					
+						<br><small>0 calls in 0.00ms</small>
+					
+					
+					
+						</a>
+					
+				</li>
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtSignalsPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					
+						<a href="http://localhost:8000/dynadb/protein/#" title="Signals" class="SignalsPanel">
+					
+					Signals
+					
+					
+						<br><small>13 receivers of 12 signals</small>
+					
+					
+					
+						</a>
+					
+				</li>
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtLoggingPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					
+						<a href="http://localhost:8000/dynadb/protein/#" title="Log messages" class="LoggingPanel">
+					
+					Logging
+					
+					
+						<br><small>2 messages</small>
+					
+					
+					
+						</a>
+					
+				</li>
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtRedirectsPanel" title="Enable for next and successive requests" type="checkbox">
+					
+						<div class="djdt-contentless djdt-disabled">
+					
+					Intercept redirects
+					
+					
+						</div>
+					
+				</li>
+			
+		</ul>
+	</div>
+	<div id="djDebugToolbarHandle" style="display: block;" hidden="hidden">
+		<span title="Show toolbar" id="djShowToolBarButton">«</span>
+	</div>
+	
+		
+			<div id="VersionsPanel" class="djdt-panelContent" style="display: none;">
+				<div class="djDebugPanelTitle">
+					<a href="http://localhost:8000/dynadb/protein/" class="djDebugClose"></a>
+					<h3>Versions</h3>
+				</div>
+				<div class="djDebugPanelContent">
+					
+					<img src="protein_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<div class="djdt-scroll"></div>
+					
+				</div>
+			</div>
+		
+	
+		
+			<div id="TimerPanel" class="djdt-panelContent" style="display: none;">
+				<div class="djDebugPanelTitle">
+					<a href="http://localhost:8000/dynadb/protein/" class="djDebugClose"></a>
+					<h3>Time</h3>
+				</div>
+				<div class="djDebugPanelContent">
+					
+					<img src="protein_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<div class="djdt-scroll"></div>
+					
+				</div>
+			</div>
+		
+	
+		
+			<div id="SettingsPanel" class="djdt-panelContent" style="display: none;">
+				<div class="djDebugPanelTitle">
+					<a href="http://localhost:8000/dynadb/protein/" class="djDebugClose"></a>
+					<h3>Settings from <code>protwis.settings</code></h3>
+				</div>
+				<div class="djDebugPanelContent">
+					
+					<img src="protein_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<div class="djdt-scroll"></div>
+					
+				</div>
+			</div>
+		
+	
+		
+			<div id="HeadersPanel" class="djdt-panelContent" style="display: none;">
+				<div class="djDebugPanelTitle">
+					<a href="http://localhost:8000/dynadb/protein/" class="djDebugClose"></a>
+					<h3>Headers</h3>
+				</div>
+				<div class="djDebugPanelContent">
+					
+					<img src="protein_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<div class="djdt-scroll"></div>
+					
+				</div>
+			</div>
+		
+	
+		
+			<div id="RequestPanel" class="djdt-panelContent" style="display: none;">
+				<div class="djDebugPanelTitle">
+					<a href="http://localhost:8000/dynadb/protein/" class="djDebugClose"></a>
+					<h3>Request</h3>
+				</div>
+				<div class="djDebugPanelContent">
+					
+					<img src="protein_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<div class="djdt-scroll"></div>
+					
+				</div>
+			</div>
+		
+	
+		
+			<div id="SQLPanel" class="djdt-panelContent" style="display: none;">
+				<div class="djDebugPanelTitle">
+					<a href="http://localhost:8000/dynadb/protein/" class="djDebugClose"></a>
+					<h3>SQL queries from 0 connections</h3>
+				</div>
+				<div class="djDebugPanelContent">
+					
+					<img src="protein_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<div class="djdt-scroll"></div>
+					
+				</div>
+			</div>
+		
+	
+		
+			<div id="StaticFilesPanel" class="djdt-panelContent" style="display: none;">
+				<div class="djDebugPanelTitle">
+					<a href="http://localhost:8000/dynadb/protein/" class="djDebugClose"></a>
+					<h3>Static files (424 found, 8 used)</h3>
+				</div>
+				<div class="djDebugPanelContent">
+					
+					<img src="protein_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<div class="djdt-scroll"></div>
+					
+				</div>
+			</div>
+		
+	
+		
+			<div id="TemplatesPanel" class="djdt-panelContent" style="display: none;">
+				<div class="djDebugPanelTitle">
+					<a href="http://localhost:8000/dynadb/protein/" class="djDebugClose"></a>
+					<h3>Templates (5 rendered)</h3>
+				</div>
+				<div class="djDebugPanelContent">
+					
+					<img src="protein_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<div class="djdt-scroll"></div>
+					
+				</div>
+			</div>
+		
+	
+		
+			<div id="CachePanel" class="djdt-panelContent" style="display: none;">
+				<div class="djDebugPanelTitle">
+					<a href="http://localhost:8000/dynadb/protein/" class="djDebugClose"></a>
+					<h3>Cache calls from 1 backend</h3>
+				</div>
+				<div class="djDebugPanelContent">
+					
+					<img src="protein_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<div class="djdt-scroll"></div>
+					
+				</div>
+			</div>
+		
+	
+		
+			<div id="SignalsPanel" class="djdt-panelContent" style="display: none;">
+				<div class="djDebugPanelTitle">
+					<a href="http://localhost:8000/dynadb/protein/" class="djDebugClose"></a>
+					<h3>Signals</h3>
+				</div>
+				<div class="djDebugPanelContent">
+					
+					<img src="protein_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<div class="djdt-scroll"></div>
+					
+				</div>
+			</div>
+		
+	
+		
+			<div id="LoggingPanel" class="djdt-panelContent" style="display: none;">
+				<div class="djDebugPanelTitle">
+					<a href="http://localhost:8000/dynadb/protein/" class="djDebugClose"></a>
+					<h3>Log messages</h3>
+				</div>
+				<div class="djDebugPanelContent">
+					
+					<img src="protein_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<div class="djdt-scroll"></div>
+					
+				</div>
+			</div>
+		
+	
+		
+	
+	<div id="djDebugWindow" class="djdt-panelContent" style="display: none;"></div>
+</div>
+
+</body></html>

@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)http://localhost:8000/dynadb/model/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GPCRdb</title>
+
+    <!-- Bootstrap -->
+    <link href="model_files/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link href="model_files/style.css" rel="stylesheet">
+
+    <!-- Additional CSS -->
+    
+
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="http://localhost:8000/" alt="GPCRdb"><img src="model_files/main.png" class="main-logo"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+              <li>
+            <a href="http://localhost:8000/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                GPCRdb<span class="caret"></span>
+        </a>
+            <ul class="dropdown-menu" role="menu">
+                <li class="nav-header disabled"><a>INFORMATION</a></li>
+                <li><a href="http://files.gpcrdb.org/GPCRdb_Poster.pdf">GPCRdb Poster</a></li>
+                <li><a href="http://docs.gpcrdb.org/">Documentation</a></li>
+                <li class="nav-header disabled"><a>ABOUT GPCRdb</a></li>
+                <li><a href="http://docs.gpcrdb.org/about.html">About</a></li>
+                <li><a href="http://docs.gpcrdb.org/contact.html">Contact</a></li>
+                <li><a href="http://docs.gpcrdb.org/citing.html">Citing GPCRdb</a></li>
+                <li><a href="http://docs.gpcrdb.org/acknowledgements.html">Acknowledgements</a></li>
+                <li><a href="http://docs.gpcrdb.org/legal_notice.html">Legal notice</a></li>
+                <li class="nav-header disabled"><a>UPDATES</a></li>
+                <li><a href="http://localhost:8000/news">News</a></li>
+                <li><a href="http://docs.gpcrdb.org/meetings.html">Meetings</a></li>
+                <li><a href="http://localhost:8000/pages/releasenotes">Release notes</a></li>
+                <li class="nav-header disabled"><a>FOR DEVELOPERS</a></li>
+                <li><a href="http://docs.gpcrdb.org/linking.html">Linking to GPCRdb</a></li>
+                <li><a href="http://docs.gpcrdb.org/web_services.html">Web services</a></li>
+            </ul>
+        </li>
+        
+        <!-- RECEPTORS -->
+        <li><a href="http://localhost:8000/protein">Receptors</a></li>
+       
+        <!-- SEQUENCES -->
+        <li>
+            <a href="http://localhost:8000/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Sequences<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li class="nav-header disabled"><a>DATA</a></li>
+                <li><a href="http://localhost:8000/alignment/targetselection">Structure-based alignments</a></li>
+                <li class="nav-header disabled"><a>TOOLS</a></li>
+                <li><a href="http://localhost:8000/phylogenetic_trees/targetselection">Phylogenetic trees</a></li>
+                <li><a href="http://localhost:8000/similaritysearch/referenceselection">Similarity search - GPCRdb</a></li>
+                <li><a href="http://localhost:8000/alignment/blastsearch">Similarity search - BLAST</a></li>
+                <li><a href="http://localhost:8000/similaritymatrix/targetselection">Similarity matrix</a></li>
+            </ul>
+        </li>
+        
+        <!-- STRUCTURES -->
+        <li>
+            <a href="http://localhost:8000/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Structures<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li class="nav-header disabled"><a>DATA</a></li>
+                <li><a href="http://localhost:8000/structure">Structure browser</a></li>
+                <li><a href="http://localhost:8000/structure/statistics">Structure statistics</a></li>
+                <li class="nav-header disabled"><a>TOOLS</a></li>
+                <li><a href="http://localhost:8000/structure/superposition_workflow_index/true">Structure superposition</a></li>
+                <li><a href="http://localhost:8000/structure/generic_numbering_index">PDB file residue numbering</a></li>
+                <li><a href="http://localhost:8000/structure/template_selection">Template selection</a></li>
+            </ul>
+        </li>
+
+        <!-- MUTATIONS -->
+        <li>
+            <a href="http://localhost:8000/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Mutations<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li class="nav-header disabled"><a>DATA</a></li>
+                <li><a href="http://localhost:8000/mutations">Mutation browser</a></li>
+                <li>
+                    <a href="http://docs.gpcrdb.org/mutations.html#mutation-data-submission">
+                        Mutation data submission
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <!-- SITES -->
+        <li>
+            <a href="http://localhost:8000/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Sites<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li class="nav-header disabled"><a>DATA</a></li>
+                <li><a href="http://localhost:8000/interaction">Ligand interactions</a></li>
+                <li class="nav-header disabled"><a>TOOLS</a></li>
+                <li><a href="http://localhost:8000/sitesearch/targetselection">Site search - manual</a></li>
+                <li><a href="http://localhost:8000/sitesearch/targetselectionpdb">Site search - from PDB complex</a></li>
+                <li><a href="http://localhost:8000/structure/fragment_superposition_index">Pharmacophore generation</a></li>
+            </ul>
+        </li>
+
+        <!-- RESIDUE NUMBERES -->
+        <li>
+            <a href="http://localhost:8000/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Residue numbers<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <li class="nav-header disabled"><a>DATA</a></li>
+                <li><a href="http://localhost:8000/residue/residuetable">Residue tables</a></li>
+                <li class="nav-header disabled"><a>TOOLS</a></li>
+                <li><a href="http://localhost:8000/structure/generic_numbering_index">PDB file residue numbering</a></li>
+                <!-- <li><a href="http://www.gpcr.org/7tm/?wicket:bookmarkablePage=:nl.ru.cmbi.mcsis.web.pages.info.UtopiaDocumentGPCRDBPage">GPCR specific PDF reader</a></li> -->
+            </ul>
+        </li>
+
+        <!-- MOLECULAR DYNAMICS DATABASE -->
+        <li>
+            <a href="http://localhost:8000/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                GPCRmd<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <!-- <li><a href="http://www.gpcr.org/7tm/?wicket:bookmarkablePage=:nl.ru.cmbi.mcsis.web.pages.info.UtopiaDocumentGPCRDBPage">GPCR specific PDF reader</a></li> -->
+                <li><a href="http://localhost:8000/dynadb/db_inputform/">Simulation submission</a></li>
+                <li><a href="http://docs.gpcrdb.org/external_servers.html">Simulation browser</a></li>
+            </ul>
+        </li>
+
+        <!-- LINKS -->
+        <li>
+            <a href="http://localhost:8000/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                Links<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+                <!-- <li><a href="http://www.gpcr.org/7tm/?wicket:bookmarkablePage=:nl.ru.cmbi.mcsis.web.pages.info.UtopiaDocumentGPCRDBPage">GPCR specific PDF reader</a></li> -->
+                <li><a href="http://docs.gpcrdb.org/linking.html">Linking to GPCRdb</a></li>
+                <li><a href="http://docs.gpcrdb.org/external_servers.html">External GPCR modeling servers</a></li>
+            </ul>
+        </li>
+
+
+        <!-- TUTORIAL -->
+        <li><a href="http://docs.gpcrdb.org/index.html#tutorial">Tutorial</a></li>
+
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+    <div class="container" id="content">
+        
+
+<form method="post" action="http://localhost:8000/dynadb/model/" enctype="multipart/form-data"><input name="csrfmiddlewaretoken" value="afF8S7UKvaHmulqSeJVQA5hDYM4MvIDo" type="hidden">
+
+
+ <!-- description column -->
+ <div class="col-md-4">
+     
+     <div class="col-md-12 panel panel-primary" style="background-color:blue;text-align:center;color:white;">   
+         <div class="panel-body">
+        	<h3> Simulation Submission<br>Step 3:<br>Model Information</h3>
+         </div> 
+     </div>
+
+     <!-- main description -->
+     <div class="col-md-12 panel panel-primary">
+         <div class="panel-body">
+            <div style="text-align:center"> 
+             <h4>FILL IN THE MODEL FORM</h4>
+            </div>
+             <p style="text-align: justify;">Fill in the form with information on the curated pdb protein (loops, mutations, etc)</p>
+             <p style="text-align: justify;">Contains structural 
+information that describe proteins or “molecular complexes” in PDB 
+format which contain structure information in a similar way than in PDB 
+database: protein structure models, ligand models, molecules 
+crystallized with proteins, crystallized or predicted stable waters or 
+ions, but not solvent, ions, membrane lipids or other molecules which 
+position is randomized or not specified when building the system (i.e. 
+structure without the atoms added during neutralization, solvation and 
+ionitzation of the system). </p>
+             <p style="text-align: justify;">Protonation state residue 
+name aliases (e.g. ASPP, GLUP, HSP, HIP) are allowed and structures must
+ contain explicit hydrogen atoms.</p>
+         </div>
+     </div>
+
+     <!-- link to docs -->
+     <div class="col-md-12 panel panel-primary">
+         <div class="panel-body">
+             <p>For more information on this form, see the <a href="http://docs.gpcrdb.org/receptors.html">docs</a>.
+             </p>
+         </div>
+     </div>
+  </div>
+ <!--   _____________________________________________________________________________________________-->
+
+<!-- middle column -->
+<div class="col-md-7 "> 
+    <!-- filters -->
+  <div class="col-md-12 panel panel-primary"> 
+
+    <div class="panel-body">
+ <!------------------------------------------------------------------------------ middle column -->
+<!--        <h4> <a title="Table containing molecular dynamic metadata"> dyndb_Dynamics Table:</a></h4> <br> -->
+<!--	<div style=display:table;>  -->
+
+		<div class="row" id="PRUEBA">
+ 			<div style="text-align:center">
+             			<h4><br>Select Model</h4><br>
+            		</div>
+
+	        <div class="row">
+	 	<!--	<div class="col-md-5"><input type="radio" name="Model" value="New Model" checked> New Model</div> -->
+		<!--  	<div class="col-md-7"><input type="radio" name="Model" value="Reuse Model"> Reuse Model</div><br> -->
+		  	<div class="col-md-1"></div><div class="col-md-3" style="text-align:left"><label for="Model">Model:</label></div>
+		  	<div class="col-md-4" style="text-align:left"> Reuse Model <input name="Model" value="Reuse Model" type="radio"></div>
+	 		<div class="col-md-4" style="text-align:center"><input name="Model" value="New Model" checked="checked" type="radio"> New Model</div></div>
+	        <div class="row">
+			<div class="col-md-4"></div> 
+			<div class="col-md-2" style="text-align:left"><label for="Choose_reused_model"><a title="Choose a previous model from DB database">Model ID: </a> </label></div>
+			<div class="col-md-3"><input style="width:130px" id="Choose_reused_model" name="type" rows="1" placeholder="e.g. Previous Model"></div>
+		<br><br>
+				
+		<br>
+		</div>
+
+
+	        <div class="row">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_name"><a title="Choose a name for your model"> Model Name:</a></label></div>
+			<div class="col-md-6"><input cols="40" id="id_name" name="name" rows="2" placeholder="e.g. New Model" style="width:300px" type="text"></div>
+		<br></div>
+
+	        <div class="row">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_type"><a title="Model Type: Type of structure that it is modeled. VALUES: ('Protein','Complex'). 'Complex' is set when an “molecular complex” is modeled."> Model Type:</a></label></div>
+				<div class="col-md-6" style="height:30px"><select id="id_type" name="type" placeholder="  " style="width:300px">
+					<option value="0" selected="selected">Complex</option>
+					<option value="1">Protein</option>
+				</select></div>
+		<br></div>
+
+	        <div class="row">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_pdbid"><a title="PDB ID: PDB ID from Protein Data Bank database . It should contain chain code when necessary (e.g. 4IAR.A). NULL when “dyndb_model”.”source_type” is not X-Ray or NMR.">PDB ID:</a></label></div>
+			<div class="col-md-6"><input id="id_pdbid" maxlength="6" name="pdbid" placeholder="e.g. 4IAR.A" style="width:300px" type="text"></div>
+		<br></div>
+
+	        <div class="row">
+		<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_description"><a title="Description: Description of the model containing information that is not provided in other filed such as procedure followed for the construction of the model. ">Description:</a></label></div>
+			<div class="col-md-6"><textarea cols="40" id="id_description" name="description" rows="2" placeholder="e.g. Agonist conformation (ergotamine). Clozapine binding by docking. Loop repair in Modeller 9v10." style="width:300px"></textarea></div>
+		<br></div>
+
+	        <div class="row">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_source_type"><a title="Source Type: Source of the coordinates of the “model”. Loop repairs and other replaced missing protein residues on X-Ray or NMR structures are not taking into account for setting the value of this field. In order to set the value to X-ray or NMR all the coordinates (including relative positions between different components) of protein complexes and their components should come from an X-Ray or an NMR experiment. Other 'VALUES: ( 'X-Ray', 'NMR', 'Docking', 'MD', 'Other').">Source Type:</a></label></div>
+				<div class="col-md-6" style="height:30px"><select id="id_source_type" name="source_type" placeholder="  " style="width:300px">
+					<option value="0" selected="selected">X-ray</option>
+					<option value="1">NMR</option>
+					<option value="2">Docking</option>
+					<option value="3">MD</option>
+					<option value="4">Other</option>
+				</select></div>
+		<br></div>
+
+
+	        <div class="row">
+                	<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="upload_pdb"><a title="Upload PDB file: Provide the PDB file which contains the 3D structure of the model">Upload PDB file:</a></label></div>
+			<div class="col-md-3"><input name="upload`_pdb" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Coordinates (PDB)" id="PDBcoor" type="file"></div>
+		</div>
+
+			<div style="text-align:right;margin-right:5%"><input value="Upload" name="upload`_pdb" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" id="PDBcoor" type="submit"></div>
+			
+  <br></div>
+		<div class="row" id="PRUEBA1">
+ 			<div style="text-align:center">
+             			<h4>Modeled Residues</h4><br>
+            		</div>
+
+
+                        <table style="text-align=center;width:96%;margin-left:2%;margin-right:2%;"> 
+
+
+
+				<tbody><tr>	<th style="width:40px;text-align:center"><label for="id_prot" size="10"><a title=" ">Prot</a></label>
+					</th><th style="width:70px;text-align:center"><label for="id_id_protein" size="10"><a title="ID protein: “id” of the protein that is modeled in this fragment.">ID protein</a></label></th>
+					<th style="width:60px;text-align:center"><label for="id_chain" size="10"><a title="Chain: chain identifier for the model in PDB format. ">Chain</a></label></th>
+					<th style="width:70px;text-align:center"><label for="id_resid_from" size="10"><a title="resid_from: starting resid of the protein fragment. ">Res from</a></label></th>
+					<th style="width:70px;text-align:center"><label for="id_resid_to"><a title="resid_to: ending resid of the protein fragment.">Res to</a></label></th>
+					<th style="width:55px;text-align:center"><label for="id_pdbid"><a title="PDBid: PDB ID from Protein Data Bank database. It should contain chain code when necessary (e.g. 4IAR.A). NULL when the source of the modeled residues is not X-Ray or NMR. ">PDBid</a></label></th>
+					<th style="width:90px;text-align:center"><label for="id_source_type"><a title="Source_type: Source of the coordinates of the protein fragment. VALUES:  ('Ab-Initio', 'Homology', 'Threading', 'Other computational methods',  'X-Ray', 'NMR'). ">Source type</a></label></th>
+					<th style="width:110px;text-align:center"><label for="id_template_id_model"><a title="Template_id_model: ID of the model used as template if “Source type” is set to 'Homology'. Otherwise must be set to NULL. ">Template model ID</a></label></th></tr>
+				<tr id="PRUEBA1"><td style="padding:5px 5px 5px 5px"><input id="id_prot" name="prot" style="width:30px" placeholder=" 1" type="number"></td>
+				<td style="padding:5px 5px 5px 5px"><input id="id_id_protein" name="id_protein" style="width:60px" placeholder="e.g. 1" type="number"></td>
+				<td style="padding:5px 5px 5px 5px"><input id="id_chain" maxlength="1" name="chain" style="width:50px" placeholder="e.g. E" type="text"></td>
+				<td style="padding:5px 5px 5px 5px"><input id="id_resid_from" name="resid_from" style="width:60px" placeholder="e.g. D" type="text"></td>
+				<td style="padding:5px 5px 5px 5px"><input id="id_resid_to" name="resid_to" style="width:60px" placeholder="e.g. E " type="text"></td>
+				<td style="padding:5px 5px 5px 5px"><input id="id_pdbid" maxlength="6" name="pdbid" style="width:45px" placeholder="4IAR.A  " type="text"></td>
+				<td style="padding:5px 5px 5px 5px"><select id="id_source_type" name="source_type" style="width:70px">	
+					<option value="0" selected="selected">Ab-initio</option>
+					<option value="1">Homology</option>
+					<option value="2">Threading</option>
+					<option value="3">Other Computational Methods</option>
+				</select></td>
+				<td style="padding:5px 5px 5px 5px"><select id="id_template_id_model" style="width:120px" name="template_id_model">
+					<option value="" selected="selected">---------</option>
+					<option value="1">DyndbModel object</option>
+				</select></td></tr>
+
+					<tr id="container">
+					</tr>
+				  
+			</tbody></table> 
+			<br>
+		        <script src="model_files/addFields.js"></script>		
+ 			<div style="text-align:center">
+					<button onclick="addFields()"> + Add modeled residue </button> 
+		        </div> 		
+ 			<div style="text-align:right;margin-right:5%">
+					<button onclick="addFields()"> Validate </button> 
+		        </div> 		
+		        </div><br>
+
+ 			<div style="text-align:center">
+             			<h4>Modeled Components</h4><br>
+            		</div>
+
+ 			<div style="text-align=center">
+                        <table style="text-align=center;width:80%;margin-left:10%;margin-right:10%;"> 
+				<tbody><tr><th style="width:80px;text-align:center"><label for="id_resname"><a title="Resname: Resname present on simulation topology file. Names from pdb are preferred but not mandatory. ">Resname</a></label></th>	
+					<th style="width:80px;text-align:center"><label for="molecule"><a title=" ">Molecule</a></label></th>
+					<th style="width:80px;text-align:center"><label for="id_id_molecule"><a title="Mol ID: ID of the chemical model (“molecule”) present in “dynamics”. ">Mol ID</a></label></th>
+					<th style="width:80px;text-align:center"><label for="id_name"><a title="Mol name: Name of the component">Mol name</a></label></th>
+					<th style="width:80px;text-align:center"><label for="id_numberofmol"><a title="Number of molecules: Number of molecules (residues) with same “id_molecule” present on simulation topology. ">Num of mol</a></label></th>
+					<th style="width:80px;text-align:center"><label for="id_type"><a title="Type: type of compound/molecule present in the simulation. VALUES: ('Ions', 'Ligand', 'Lipid','Water', 'Other'). ">Type</a></label></th>
+
+				</tr><tr>	<td style="padding:5px 5px 5px 5px"><input style="width:70px" id="id_resname" maxlength="4" name="resname" placeholder="e.g. CLOZ" type="text"></td>
+					<td style="padding:5px 5px 5px 5px"><input style="width:70px" id="molecule" maxlength="4" name="molecule" placeholder="e.g. 1 " type="text"></td>
+					<td style="padding:5px 5px 5px 5px"><select style="width:70px" id="id_id_molecule" name="id_molecule" placeholder="  ">
+						<option value="" selected="selected">---------</option>
+						<option value="1">DyndbMolecule object</option>
+						<option value="3">DyndbMolecule object</option>
+						<option value="4">DyndbMolecule object</option>
+						<option value="5">DyndbMolecule object</option>
+						<option value="6">DyndbMolecule object</option>
+						<option value="7">DyndbMolecule object</option>
+						<option value="2">DyndbMolecule object</option>
+						</select></td>
+					<td style="padding:5px 5px 5px 5px"><input id="id_name" maxlength="60" name="name" style="width:70px" placeholder="Clozapine" type="text"></td>
+					<td style="padding:5px 5px 5px 5px"><input id="id_numberofmol" min="0" name="numberofmol" style="width:70px" placeholder="e.g. 2" type="number"></td>
+					<td style="padding:5px 5px 5px 5px"><select id="id_type" name="type" style="width:60px">
+						<option value="Ions" selected="selected">Ions</option>
+						<option value="Ligand">Ligand</option>
+						<option value="Membrane">Lipid</option>
+						<option value="Water">Water</option>
+						<option value="Other">Other</option>
+						</select></td></tr>
+
+			</tbody></table>
+			<br>
+ 			<div style="text-align:center">
+					<button onclick="addFields()"> + Add modeled residue </button> 
+		        </div> 		
+		        </div><br>
+
+
+            		</div>
+
+</div>
+
+  <div id="selection-buttons">
+      <div class="col-md-12 panel panel-primary">
+  	  <div class="panel-body" id="selection-">
+        	<a id="selection-button" href="http://localhost:8000/dynadb/dynamics/" class="btn btn-success btn-lg btn-block has-spinner">
+            <span class="spinner"><i class="fa fa-spinner fa-spin"></i></span> Continue to step 4: Dynamics Information </a>
+      	  </div>
+  	  <div class="panel-body" id="selection-">
+        	<a id="selection-button" href="http://localhost:8000/dynadb/molecule/" class="btn btn-success btn-lg btn-block has-spinner">
+            <span class="spinner"><i class="fa fa-spinner fa-spin"></i></span> Back to step 2: Small Molecule Information </a>
+      	  </div>
+      </div>
+  </div>
+</div>
+
+
+    </form></div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="model_files/jquery_002.js"></script>
+    <!-- jQueryUI -->
+    <link rel="stylesheet" href="model_files/jquery-ui_002.css" type="text/css" media="all">
+    <link rel="stylesheet" href="model_files/jquery-ui.css" type="text/css" media="all">
+    <script src="model_files/jquery-ui.js"></script>
+    <script src="model_files/bootstrap.js"></script>
+    <!-- Include custom ajax functions -->
+    
+  
+<link rel="stylesheet" href="model_files/print.css" type="text/css" media="print">
+<link rel="stylesheet" href="model_files/toolbar.css" type="text/css">
+
+<!-- Prevent our copy of jQuery from registering as an AMD module on sites that use RequireJS. -->
+<script src="model_files/jquery_pre.js"></script>
+<script src="model_files/jquery.js"></script>
+<script src="model_files/jquery_post.js"></script>
+
+<script src="model_files/toolbar.js"></script>
+<div id="djDebug" dir="ltr" data-store-id="7d6eea2f8b5e48a191fcdad4973505de" data-render-panel-url="/__debug__/render_panel/" style="display: block;" hidden="hidden">
+	<div id="djDebugToolbar" style="" hidden="hidden">
+		<ul id="djDebugPanelList">
+			
+			<li><a id="djHideToolBarButton" href="http://localhost:8000/dynadb/model/#" title="Hide toolbar">Hide »</a></li>
+			
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtVersionsPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					
+						<a href="http://localhost:8000/dynadb/model/#" title="Versions" class="VersionsPanel">
+					
+					Versions
+					
+					
+						<br><small>Django 1.9.5</small>
+					
+					
+					
+						</a>
+					
+				</li>
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtTimerPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					
+						<a href="http://localhost:8000/dynadb/model/#" title="Time" class="TimerPanel">
+					
+					Time
+					
+					
+						<br><small>CPU: 339.86ms (645.37ms)</small>
+					
+					
+					
+						</a>
+					
+				</li>
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtSettingsPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					
+						<a href="http://localhost:8000/dynadb/model/#" title="Settings from &lt;code&gt;protwis.settings&lt;/code&gt;" class="SettingsPanel">
+					
+					Settings
+					
+					
+						
+					
+					
+					
+						</a>
+					
+				</li>
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtHeadersPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					
+						<a href="http://localhost:8000/dynadb/model/#" title="Headers" class="HeadersPanel">
+					
+					Headers
+					
+					
+						
+					
+					
+					
+						</a>
+					
+				</li>
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtRequestPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					
+						<a href="http://localhost:8000/dynadb/model/#" title="Request" class="RequestPanel">
+					
+					Request
+					
+					
+						<br><small>MODELview</small>
+					
+					
+					
+						</a>
+					
+				</li>
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtSQLPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					
+						<a href="http://localhost:8000/dynadb/model/#" title="SQL queries from 0 connections" class="SQLPanel">
+					
+					SQL
+					
+					
+						<br><small>0 queries in 0.00ms</small>
+					
+					
+					
+						</a>
+					
+				</li>
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtStaticFilesPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					
+						<a href="http://localhost:8000/dynadb/model/#" title="Static files (424 found, 9 used)" class="StaticFilesPanel">
+					
+					Static files
+					
+					
+						<br><small>9 files used</small>
+					
+					
+					
+						</a>
+					
+				</li>
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtTemplatesPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					
+						<a href="http://localhost:8000/dynadb/model/#" title="Templates (5 rendered)" class="TemplatesPanel">
+					
+					Templates
+					
+					
+						<br><small>dynadb/MODEL.html</small>
+					
+					
+					
+						</a>
+					
+				</li>
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtCachePanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					
+						<a href="http://localhost:8000/dynadb/model/#" title="Cache calls from 1 backend" class="CachePanel">
+					
+					Cache
+					
+					
+						<br><small>0 calls in 0.00ms</small>
+					
+					
+					
+						</a>
+					
+				</li>
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtSignalsPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					
+						<a href="http://localhost:8000/dynadb/model/#" title="Signals" class="SignalsPanel">
+					
+					Signals
+					
+					
+						<br><small>13 receivers of 12 signals</small>
+					
+					
+					
+						</a>
+					
+				</li>
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtLoggingPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					
+						<a href="http://localhost:8000/dynadb/model/#" title="Log messages" class="LoggingPanel">
+					
+					Logging
+					
+					
+						<br><small>2 messages</small>
+					
+					
+					
+						</a>
+					
+				</li>
+			
+				<li class="djDebugPanelButton">
+					<input data-cookie="djdtRedirectsPanel" title="Enable for next and successive requests" type="checkbox">
+					
+						<div class="djdt-contentless djdt-disabled">
+					
+					Intercept redirects
+					
+					
+						</div>
+					
+				</li>
+			
+		</ul>
+	</div>
+	<div id="djDebugToolbarHandle" style="display: block;" hidden="hidden">
+		<span title="Show toolbar" id="djShowToolBarButton">«</span>
+	</div>
+	
+		
+			<div id="VersionsPanel" class="djdt-panelContent" style="display: none;">
+				<div class="djDebugPanelTitle">
+					<a href="http://localhost:8000/dynadb/model/" class="djDebugClose"></a>
+					<h3>Versions</h3>
+				</div>
+				<div class="djDebugPanelContent">
+					
+					<img src="model_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<div class="djdt-scroll"></div>
+					
+				</div>
+			</div>
+		
+	
+		
+			<div id="TimerPanel" class="djdt-panelContent" style="display: none;">
+				<div class="djDebugPanelTitle">
+					<a href="http://localhost:8000/dynadb/model/" class="djDebugClose"></a>
+					<h3>Time</h3>
+				</div>
+				<div class="djDebugPanelContent">
+					
+					<img src="model_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<div class="djdt-scroll"></div>
+					
+				</div>
+			</div>
+		
+	
+		
+			<div id="SettingsPanel" class="djdt-panelContent" style="display: none;">
+				<div class="djDebugPanelTitle">
+					<a href="http://localhost:8000/dynadb/model/" class="djDebugClose"></a>
+					<h3>Settings from <code>protwis.settings</code></h3>
+				</div>
+				<div class="djDebugPanelContent">
+					
+					<img src="model_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<div class="djdt-scroll"></div>
+					
+				</div>
+			</div>
+		
+	
+		
+			<div id="HeadersPanel" class="djdt-panelContent" style="display: none;">
+				<div class="djDebugPanelTitle">
+					<a href="http://localhost:8000/dynadb/model/" class="djDebugClose"></a>
+					<h3>Headers</h3>
+				</div>
+				<div class="djDebugPanelContent">
+					
+					<img src="model_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<div class="djdt-scroll"></div>
+					
+				</div>
+			</div>
+		
+	
+		
+			<div id="RequestPanel" class="djdt-panelContent" style="display: none;">
+				<div class="djDebugPanelTitle">
+					<a href="http://localhost:8000/dynadb/model/" class="djDebugClose"></a>
+					<h3>Request</h3>
+				</div>
+				<div class="djDebugPanelContent">
+					
+					<img src="model_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<div class="djdt-scroll"></div>
+					
+				</div>
+			</div>
+		
+	
+		
+			<div id="SQLPanel" class="djdt-panelContent" style="display: none;">
+				<div class="djDebugPanelTitle">
+					<a href="http://localhost:8000/dynadb/model/" class="djDebugClose"></a>
+					<h3>SQL queries from 0 connections</h3>
+				</div>
+				<div class="djDebugPanelContent">
+					
+					<img src="model_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<div class="djdt-scroll"></div>
+					
+				</div>
+			</div>
+		
+	
+		
+			<div id="StaticFilesPanel" class="djdt-panelContent" style="display: none;">
+				<div class="djDebugPanelTitle">
+					<a href="http://localhost:8000/dynadb/model/" class="djDebugClose"></a>
+					<h3>Static files (424 found, 9 used)</h3>
+				</div>
+				<div class="djDebugPanelContent">
+					
+					<img src="model_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<div class="djdt-scroll"></div>
+					
+				</div>
+			</div>
+		
+	
+		
+			<div id="TemplatesPanel" class="djdt-panelContent" style="display: none;">
+				<div class="djDebugPanelTitle">
+					<a href="http://localhost:8000/dynadb/model/" class="djDebugClose"></a>
+					<h3>Templates (5 rendered)</h3>
+				</div>
+				<div class="djDebugPanelContent">
+					
+					<img src="model_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<div class="djdt-scroll"></div>
+					
+				</div>
+			</div>
+		
+	
+		
+			<div id="CachePanel" class="djdt-panelContent" style="display: none;">
+				<div class="djDebugPanelTitle">
+					<a href="http://localhost:8000/dynadb/model/" class="djDebugClose"></a>
+					<h3>Cache calls from 1 backend</h3>
+				</div>
+				<div class="djDebugPanelContent">
+					
+					<img src="model_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<div class="djdt-scroll"></div>
+					
+				</div>
+			</div>
+		
+	
+		
+			<div id="SignalsPanel" class="djdt-panelContent" style="display: none;">
+				<div class="djDebugPanelTitle">
+					<a href="http://localhost:8000/dynadb/model/" class="djDebugClose"></a>
+					<h3>Signals</h3>
+				</div>
+				<div class="djDebugPanelContent">
+					
+					<img src="model_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<div class="djdt-scroll"></div>
+					
+				</div>
+			</div>
+		
+	
+		
+			<div id="LoggingPanel" class="djdt-panelContent" style="display: none;">
+				<div class="djDebugPanelTitle">
+					<a href="http://localhost:8000/dynadb/model/" class="djDebugClose"></a>
+					<h3>Log messages</h3>
+				</div>
+				<div class="djDebugPanelContent">
+					
+					<img src="model_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<div class="djdt-scroll"></div>
+					
+				</div>
+			</div>
+		
+	
+		
+	
+	<div id="djDebugWindow" class="djdt-panelContent" style="display: none;"></div>
+</div>
+
+</body></html>
