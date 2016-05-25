@@ -201,17 +201,15 @@
             </div>
              <p style="text-align: justify;">Fill in the form with information on the curated pdb protein (loops, mutations, etc)</p>
              <p style="text-align: justify;">Contains structural 
-information that describe proteins or “molecular complexes” in PDB 
-format which contain structure information in a similar way than in PDB 
-database: protein structure models, ligand models, molecules 
-crystallized with proteins, crystallized or predicted stable waters or 
-ions, but not solvent, ions, membrane lipids or other molecules which 
-position is randomized or not specified when building the system (i.e. 
-structure without the atoms added during neutralization, solvation and 
-ionitzation of the system). </p>
-             <p style="text-align: justify;">Protonation state residue 
-name aliases (e.g. ASPP, GLUP, HSP, HIP) are allowed and structures must
- contain explicit hydrogen atoms.</p>
+information about proteins or “molecular complexes” in PDB format 
+similar to the PDB database: protein structure models, ligand models, 
+molecules crystallized with proteins, crystallized or user-predicted 
+stable waters and ions.</p>
+
+             <p style="text-align: justify;">Note, do not include 
+coordinates of solvent, ions, membrane lipids or other molecules which 
+are part of the general solvation environment specially if their 
+coordinates are randomly generated. </p>
          </div>
      </div>
 
@@ -248,8 +246,8 @@ name aliases (e.g. ASPP, GLUP, HSP, HIP) are allowed and structures must
 	 		<div class="col-md-4" style="text-align:center"><input name="Model" value="New Model" checked="checked" type="radio"> New Model</div></div>
 	        <div class="row">
 			<div class="col-md-4"></div> 
-			<div class="col-md-2" style="text-align:left"><label for="Choose_reused_model"><a title="Choose a previous model from DB database">Model ID: </a> </label></div>
-			<div class="col-md-3"><input style="width:130px" id="Choose_reused_model" name="type" rows="1" placeholder="e.g. Previous Model"></div>
+			<div class="col-md-2" style="text-align:left"><label for="Choose_reused_model"><a title="Choose a previous model from the GPCRmd database">Model ID: </a> </label></div>
+			<div class="col-md-3"><input style="width:130px" id="Choose_reused_model" name="type" rows="1" placeholder=" Previous Model"></div>
 		<br><br>
 				
 		<br>
@@ -258,30 +256,30 @@ name aliases (e.g. ASPP, GLUP, HSP, HIP) are allowed and structures must
 
 	        <div class="row">
 			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_name"><a title="Choose a name for your model"> Model Name:</a></label></div>
-			<div class="col-md-6"><input cols="40" id="id_name" name="name" rows="2" placeholder="e.g. New Model" style="width:300px" type="text"></div>
+			<div class="col-md-6"><input cols="40" id="id_name" name="name" rows="2" placeholder="5-HT1B receptor in complex with Clozapine" style="width:300px" type="text"></div>
 		<br></div>
 
 	        <div class="row">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_type"><a title="Model Type: Type of structure that it is modeled. VALUES: ('Protein','Complex'). 'Complex' is set when an “molecular complex” is modeled."> Model Type:</a></label></div>
-				<div class="col-md-6" style="height:30px"><select id="id_type" name="type" placeholder="  " style="width:300px">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_type"><a title="Model Type: Type of structure that is modeled."> Model Type:</a></label></div>
+				<div class="col-md-6" style="height:30px"><select id="id_type" name="type" placeholder="   " style="width:300px">
 					<option value="0" selected="selected">Complex</option>
 					<option value="1">Protein</option>
 				</select></div>
 		<br></div>
 
 	        <div class="row">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_pdbid"><a title="PDB ID: PDB ID from Protein Data Bank database . It should contain chain code when necessary (e.g. 4IAR.A). NULL when “dyndb_model”.”source_type” is not X-Ray or NMR.">PDB ID:</a></label></div>
-			<div class="col-md-6"><input id="id_pdbid" maxlength="6" name="pdbid" placeholder="e.g. 4IAR.A" style="width:300px" type="text"></div>
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_pdbid"><a title="PDB ID: PDB ID from Protein Data Bank database. It should contain chain code when necessary (e.g. 4IAR.A). ">PDB ID:</a></label></div>
+			<div class="col-md-6"><input id="id_pdbid" maxlength="6" name="pdbid" placeholder=" 4IAR.A" style="width:300px" type="text"></div>
 		<br></div>
 
 	        <div class="row">
-		<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_description"><a title="Description: Description of the model containing information that is not provided in other filed such as procedure followed for the construction of the model. ">Description:</a></label></div>
-			<div class="col-md-6"><textarea cols="40" id="id_description" name="description" rows="2" placeholder="e.g. Agonist conformation (ergotamine). Clozapine binding by docking. Loop repair in Modeller 9v10." style="width:300px"></textarea></div>
+		<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_description"><a title="Description: Description of the model containing information that is not provided in other field such as procedure followed for the construction of the model. ">Description:</a></label></div>
+			<div class="col-md-6"><textarea cols="40" id="id_description" name="description" rows="2" placeholder=" Agonist conformation (ergotamine). Clozapine binding by docking. Loop repair in Modeller 9v10." style="width:300px"></textarea></div>
 		<br></div>
 
 	        <div class="row">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_source_type"><a title="Source Type: Source of the coordinates of the “model”. Loop repairs and other replaced missing protein residues on X-Ray or NMR structures are not taking into account for setting the value of this field. In order to set the value to X-ray or NMR all the coordinates (including relative positions between different components) of protein complexes and their components should come from an X-Ray or an NMR experiment. Other 'VALUES: ( 'X-Ray', 'NMR', 'Docking', 'MD', 'Other').">Source Type:</a></label></div>
-				<div class="col-md-6" style="height:30px"><select id="id_source_type" name="source_type" placeholder="  " style="width:300px">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_source_type"><a title="Source Type: Source of the coordinates of the “model”. Loop repairs and other replaced missing protein residues on X-Ray or NMR structures are not taken into account for setting the value of this field. In order to set the value to X-ray or NMR all the coordinates (including relative positions between different components) of protein complexes and their components should come from an X-Ray or an NMR experiment.">Source Type:</a></label></div>
+				<div class="col-md-6" style="height:30px"><select id="id_source_type" name="source_type" placeholder="   " style="width:300px">
 					<option value="0" selected="selected">X-ray</option>
 					<option value="1">NMR</option>
 					<option value="2">Docking</option>
@@ -292,8 +290,8 @@ name aliases (e.g. ASPP, GLUP, HSP, HIP) are allowed and structures must
 
 
 	        <div class="row">
-                	<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="upload_pdb"><a title="Upload PDB file: Provide the PDB file which contains the 3D structure of the model">Upload PDB file:</a></label></div>
-			<div class="col-md-3"><input name="upload`_pdb" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Coordinates (PDB)" id="PDBcoor" type="file"></div>
+                	<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="upload_pdb"><a title="Upload PDB file: Provide the PDB file which contains the 3D structure of the model (Max. size of the file is 50 MB)">Upload PDB file:</a></label></div>
+			<div class="col-md-3"><input name="upload`_pdb" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder=" Coordinates (PDB)" id="PDBcoor" type="file"></div>
 		</div>
 
 			<div style="text-align:right;margin-right:5%"><input value="Upload" name="upload`_pdb" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" id="PDBcoor" type="submit"></div>
@@ -309,20 +307,20 @@ name aliases (e.g. ASPP, GLUP, HSP, HIP) are allowed and structures must
 
 
 
-				<tbody><tr>	<th style="width:40px;text-align:center"><label for="id_prot" size="10"><a title=" ">Prot</a></label>
-					</th><th style="width:70px;text-align:center"><label for="id_id_protein" size="10"><a title="ID protein: “id” of the protein that is modeled in this fragment.">ID protein</a></label></th>
-					<th style="width:60px;text-align:center"><label for="id_chain" size="10"><a title="Chain: chain identifier for the model in PDB format. ">Chain</a></label></th>
-					<th style="width:70px;text-align:center"><label for="id_resid_from" size="10"><a title="resid_from: starting resid of the protein fragment. ">Res from</a></label></th>
-					<th style="width:70px;text-align:center"><label for="id_resid_to"><a title="resid_to: ending resid of the protein fragment.">Res to</a></label></th>
-					<th style="width:55px;text-align:center"><label for="id_pdbid"><a title="PDBid: PDB ID from Protein Data Bank database. It should contain chain code when necessary (e.g. 4IAR.A). NULL when the source of the modeled residues is not X-Ray or NMR. ">PDBid</a></label></th>
-					<th style="width:90px;text-align:center"><label for="id_source_type"><a title="Source_type: Source of the coordinates of the protein fragment. VALUES:  ('Ab-Initio', 'Homology', 'Threading', 'Other computational methods',  'X-Ray', 'NMR'). ">Source type</a></label></th>
-					<th style="width:110px;text-align:center"><label for="id_template_id_model"><a title="Template_id_model: ID of the model used as template if “Source type” is set to 'Homology'. Otherwise must be set to NULL. ">Template model ID</a></label></th></tr>
-				<tr id="PRUEBA1"><td style="padding:5px 5px 5px 5px"><input id="id_prot" name="prot" style="width:30px" placeholder=" 1" type="number"></td>
-				<td style="padding:5px 5px 5px 5px"><input id="id_id_protein" name="id_protein" style="width:60px" placeholder="e.g. 1" type="number"></td>
-				<td style="padding:5px 5px 5px 5px"><input id="id_chain" maxlength="1" name="chain" style="width:50px" placeholder="e.g. E" type="text"></td>
-				<td style="padding:5px 5px 5px 5px"><input id="id_resid_from" name="resid_from" style="width:60px" placeholder="e.g. D" type="text"></td>
-				<td style="padding:5px 5px 5px 5px"><input id="id_resid_to" name="resid_to" style="width:60px" placeholder="e.g. E " type="text"></td>
-				<td style="padding:5px 5px 5px 5px"><input id="id_pdbid" maxlength="6" name="pdbid" style="width:45px" placeholder="4IAR.A  " type="text"></td>
+				<tbody><tr>	<th style="width:40px;text-align:center"><label for="id_prot" size="10"><a title="Ordinal number corresponding to the records containing sequence information that was provided in the protein form ">Prot</a></label>
+					</th><th style="width:70px;text-align:center"><label for="id_id_protein" size="10"><a title="Protein ID: ID of the protein that is modeled in this fragment.">Protein ID</a></label></th>
+					<th style="width:60px;text-align:center"><label for="id_chain" size="10"><a title="Chain: Chain identifier for the model in PDB format. ">Chain</a></label></th>
+					<th style="width:70px;text-align:center"><label for="id_resid_from" size="10"><a title="Res from: Starting resid of the protein fragment. ">Res from</a></label></th>
+					<th style="width:70px;text-align:center"><label for="id_resid_to"><a title="Resid to: ending resid of the protein fragment.">Res to</a></label></th>
+					<th style="width:55px;text-align:center"><label for="id_pdbid"><a title="PDB ID: PDB ID from Protein Data Bank database. It should contain chain code when necessary (e.g. 4IAR.A). Must be empty when the source of the modeled residues is not X-Ray or NMR. ">PDB ID</a></label></th>
+					<th style="width:90px;text-align:center"><label for="id_source_type"><a title="Source type: Source of the coordinates of the protein fragment.">Source type</a></label></th>
+					<th style="width:110px;text-align:center"><label for="id_template_id_model"><a title="Template id model: ID of the model used as template if “Source type” is set to 'Homology'. ">Template model ID</a></label></th></tr>
+				<tr id="PRUEBA1"><td style="padding:5px 5px 5px 5px"><input id="id_prot" name="prot" style="width:30px" placeholder="  1" type="number"></td>
+				<td style="padding:5px 5px 5px 5px"><input id="id_id_protein" name="id_protein" style="width:60px" placeholder=" 1" type="number"></td>
+				<td style="padding:5px 5px 5px 5px"><input id="id_chain" maxlength="1" name="chain" style="width:45px" placeholder=" E" type="text"></td>
+				<td style="padding:5px 5px 5px 5px"><input id="id_resid_from" name="resid_from" style="width:60px" placeholder=" D" type="text"></td>
+				<td style="padding:5px 5px 5px 5px"><input id="id_resid_to" name="resid_to" style="width:60px" placeholder=" E " type="text"></td>
+				<td style="padding:5px 5px 5px 5px"><input id="id_pdbid" maxlength="6" name="pdbid" style="width:50px" placeholder=" 4IAR.A  " type="text"></td>
 				<td style="padding:5px 5px 5px 5px"><select id="id_source_type" name="source_type" style="width:70px">	
 					<option value="0" selected="selected">Ab-initio</option>
 					<option value="1">Homology</option>
@@ -349,21 +347,21 @@ name aliases (e.g. ASPP, GLUP, HSP, HIP) are allowed and structures must
 		        </div><br>
 
  			<div style="text-align:center">
-             			<h4>Modeled Components</h4><br>
+             			<h4><a style="color:black" title="Do not include molecule types which are part of the general solvation environment">Modeled Components</a></h4><br>
             		</div>
 
  			<div style="text-align=center">
                         <table style="text-align=center;width:80%;margin-left:10%;margin-right:10%;"> 
-				<tbody><tr><th style="width:80px;text-align:center"><label for="id_resname"><a title="Resname: Resname present on simulation topology file. Names from pdb are preferred but not mandatory. ">Resname</a></label></th>	
-					<th style="width:80px;text-align:center"><label for="molecule"><a title=" ">Molecule</a></label></th>
-					<th style="width:80px;text-align:center"><label for="id_id_molecule"><a title="Mol ID: ID of the chemical model (“molecule”) present in “dynamics”. ">Mol ID</a></label></th>
+				<tbody><tr><th style="width:80px;text-align:center"><label for="id_resname"><a title="Resname: Resname present on simulation topology file. Atom names and residue names from Protein Data Bank are prefered but not mandatory.">Resname</a></label></th>	
+					<th style="width:80px;text-align:center"><label for="molecule"><a title="Ordinal number corresponding to the records containing sequence information that was provided in the small molecule form. ">Molecule</a></label></th>
+					<th style="width:80px;text-align:center"><label for="id_id_molecule"><a title="Mol ID: ID of the chemical model (“molecule”) present in “model”. ">Mol ID</a></label></th>
 					<th style="width:80px;text-align:center"><label for="id_name"><a title="Mol name: Name of the component">Mol name</a></label></th>
-					<th style="width:80px;text-align:center"><label for="id_numberofmol"><a title="Number of molecules: Number of molecules (residues) with same “id_molecule” present on simulation topology. ">Num of mol</a></label></th>
-					<th style="width:80px;text-align:center"><label for="id_type"><a title="Type: type of compound/molecule present in the simulation. VALUES: ('Ions', 'Ligand', 'Lipid','Water', 'Other'). ">Type</a></label></th>
+					<th style="width:80px;text-align:center"><label for="id_numberofmol"><a title="Number of molecules: Number of molecules belonging to an specific residue type present on simulation topology. ">Num of mol</a></label></th>
+					<th style="width:80px;text-align:center"><label for="id_type"><a title="Type: Type of compound/molecule present in the simulation.">Type</a></label></th>
 
-				</tr><tr>	<td style="padding:5px 5px 5px 5px"><input style="width:70px" id="id_resname" maxlength="4" name="resname" placeholder="e.g. CLOZ" type="text"></td>
-					<td style="padding:5px 5px 5px 5px"><input style="width:70px" id="molecule" maxlength="4" name="molecule" placeholder="e.g. 1 " type="text"></td>
-					<td style="padding:5px 5px 5px 5px"><select style="width:70px" id="id_id_molecule" name="id_molecule" placeholder="  ">
+				</tr><tr>	<td style="padding:5px 5px 5px 5px"><input style="width:70px" id="id_resname" maxlength="4" name="resname" placeholder=" CLOZ" type="text"></td>
+					<td style="padding:5px 5px 5px 5px"><input style="width:70px" id="molecule" maxlength="4" name="molecule" placeholder=" 1 " type="text"></td>
+					<td style="padding:5px 5px 5px 5px"><select style="width:70px" id="id_id_molecule" name="id_molecule" placeholder="   ">
 						<option value="" selected="selected">---------</option>
 						<option value="1">DyndbMolecule object</option>
 						<option value="3">DyndbMolecule object</option>
@@ -373,8 +371,8 @@ name aliases (e.g. ASPP, GLUP, HSP, HIP) are allowed and structures must
 						<option value="7">DyndbMolecule object</option>
 						<option value="2">DyndbMolecule object</option>
 						</select></td>
-					<td style="padding:5px 5px 5px 5px"><input id="id_name" maxlength="60" name="name" style="width:70px" placeholder="Clozapine" type="text"></td>
-					<td style="padding:5px 5px 5px 5px"><input id="id_numberofmol" min="0" name="numberofmol" style="width:70px" placeholder="e.g. 2" type="number"></td>
+					<td style="padding:5px 5px 5px 5px"><input id="id_name" maxlength="60" name="name" style="width:70px" placeholder=" Clozapine" type="text"></td>
+					<td style="padding:5px 5px 5px 5px"><input id="id_numberofmol" min="0" name="numberofmol" style="width:70px" placeholder=" 2" type="number"></td>
 					<td style="padding:5px 5px 5px 5px"><select id="id_type" name="type" style="width:60px">
 						<option value="Ions" selected="selected">Ions</option>
 						<option value="Ligand">Ligand</option>
@@ -431,7 +429,7 @@ name aliases (e.g. ASPP, GLUP, HSP, HIP) are allowed and structures must
 <script src="model_files/jquery_post.js"></script>
 
 <script src="model_files/toolbar.js"></script>
-<div id="djDebug" dir="ltr" data-store-id="7d6eea2f8b5e48a191fcdad4973505de" data-render-panel-url="/__debug__/render_panel/" style="display: block;" hidden="hidden">
+<div id="djDebug" dir="ltr" data-store-id="c8a45d0fd3d645d4b36cfcf3ede1c15e" data-render-panel-url="/__debug__/render_panel/" style="display: block;" hidden="hidden">
 	<div id="djDebugToolbar" style="" hidden="hidden">
 		<ul id="djDebugPanelList">
 			
@@ -462,7 +460,7 @@ name aliases (e.g. ASPP, GLUP, HSP, HIP) are allowed and structures must
 					Time
 					
 					
-						<br><small>CPU: 339.86ms (645.37ms)</small>
+						<br><small>CPU: 263.40ms (717.71ms)</small>
 					
 					
 					

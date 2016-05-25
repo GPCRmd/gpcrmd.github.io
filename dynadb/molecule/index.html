@@ -203,19 +203,22 @@
              <p>Please, provide information of all non-protein molecules in your system.</p>
              <p style="text-align: justify">Small molecule information 
 contains data for compounds and molecules that are not proteins, 
-including solvent and ions. Compound level information can be retrieved 
-from PubChem Compound and CHEMBL databases. User must provide also 
-molecule information data regarding elemental composition, connectivity,
- net charge, protonation states and tautomerical form through uploading a
- MDL Molfile or an SDFile. Isotopical composition is optional. PubChem 
-CIDs for typical molecules as water or most common ions will be 
-provided.</p>
-<p style="text-align: justify">Only molecule chemical structures that 
-have coordinates coming from experimental data or that are crucial for 
-the experimental setting of the simulation must be included in model 
-objects (e. g. crystalized-like waters or very stable ions, but not 
-water molecules or ions with randomly generated coordinates). Otherwise 
-chemical structures must be included into a dynamics object.  </p>
+including lipids, solvent and ions. General compound information can be 
+retrieved from PubChem Compound and ChEMBL databases. User must also 
+provide information about elemental composition, connectivity, net 
+charge, protonation states and tautomerical form through uploading a MDL
+ Molfile or an SDFile. Isotopical composition is optional. PubChem CIDs 
+for typical molecules as water or most common ions will be provided. 
+Coordinate information must be provided later on model (step 3) or 
+dynamics forms (step 4).</p>
+
+<p style="text-align: justify">Only molecule structures that have 
+coordinates coming from experimental data or that are crucial for the 
+setting of the simulation must be included in model by checking the 
+field “Present in model” (e. g. crystalized-like waters or very stable 
+ions, but not water molecules or ions with randomly generated 
+coordinates). Otherwise chemical structures must be included into the 
+dynamics form (step 4).</p>
 
          </div>
      </div>
@@ -244,34 +247,34 @@ chemical structures must be included into a dynamics object.  </p>
              <h4><br>Molecule information</h4>
 	    </div><br>
 	        <div class="row">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_name"><a title="Name: First name in the list of names in pubchem or 'compund name' in CHEMBL if there is no entry in pubchem.">Name:</a></label></div>
-			<div class="col-md-6"><input style="width:300px" id="id_name" maxlength="60" name="name" placeholder="e.g. Clozapine" type="text"></div>
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_name"><a title="Name: First name in the list of names in PubChem or 'compound name' in ChEMBL if there is no entry in PubChem.">Name:</a></label></div>
+			<div class="col-md-6"><input style="width:300px" id="id_name" maxlength="60" name="name" placeholder=" Clozapine" type="text"></div>
 		</div>
 			
 
 	        <div class="row">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_iupac_name"><a title="Iupac name: IUPAC name downloaded from pubchem.">Iupac name:</a></label></div>
-			<div class="col-md-6"><input id="id_iupac_name" style="width:300px" maxlength="500" name="iupac_name" placeholder="e.g. 3-chloro-6-(4-methylpiperazin-1-yl)-5H-benzo[b][1,4]benzodia" type="text"></div>
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_iupac_name"><a title="IUPAC name: IUPAC name downloaded from pubchem.">IUPAC name:</a></label></div>
+			<div class="col-md-6"><input id="id_iupac_name" style="width:300px" maxlength="500" name="iupac_name" placeholder=" 3-chloro-6-(4-methylpiperazin-1-yl)-5H-benzo[b][1,4]benzodia" type="text"></div>
 		</div>
 			
 
 	        <div class="row">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_pubchem_cid"><a title="Pubchem cid: Pubchem chemical identifier">Pubchem cid:</a></label></div>
-			<div class="col-md-3"><input id="id_pubchem_cid" name="pubchem_cid" style="width:145px;margin-right:4%" placeholder="e.g. 2818" type="number"></div>
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_pubchem_cid"><a title="PubChem cid: PubChem chemical identifier">PubChem cid:</a></label></div>
+			<div class="col-md-3"><input id="id_pubchem_cid" name="pubchem_cid" style="width:145px;margin-right:4%" placeholder=" 2818" type="number"></div>
 			<div class="col-md-3"><button style="width:145px;text-align:center;margin-left:4%;" type="button" onclick="alert('Hi!!!')">Validate</button></div>
 		</div>
 			
 
 	        <div class="row">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_chembleid"><a title="ChEMBL ID: id in CHEMBL.">ChEMBL ID:</a></label></div>
-			<div class="col-md-3"><input id="id_chembleid" name="chembleid" style="width:145px;margin-right:4%" placeholder="e.g. 42" type="number"></div>
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_chembleid"><a title="ChEMBL ID: id in ChEMBL.">ChEMBL ID:</a></label></div>
+			<div class="col-md-3"><input id="id_chembleid" name="chembleid" style="width:145px;margin-right:4%" placeholder=" 42" type="number"></div>
 			<div class="col-md-3"><button style="width:145px;text-align:center;margin-left:4%" type="button" onclick="alert('Hi!!!')">Validate</button></div>
 		</div>
 
 
 	        <div class="row">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_std_id_molecule"><a title="Std id molecule: “molecule” ID that represents the standard form of the compound, here the properties downloaded directly from pubchem or CHEMBL.  ">Std ID molecule:</a></label></div>
-			<div class="col-md-6"><select id="id_std_id_molecule" name="std_id_molecule" style="width:300px" placeholder="e.g. 1">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_std_id_molecule"><a title="Std ID molecule: Molecule ID that represents the standard form of the compound, here the properties downloaded directly from pubchem or ChEMBL.">Std ID molecule:</a></label></div>
+			<div class="col-md-6"><select id="id_std_id_molecule" name="std_id_molecule" style="width:300px" placeholder=" 1">
 				<option value="" selected="selected">---------</option>
 				<option value="1">DyndbMolecule object</option>
 				<option value="3">DyndbMolecule object</option>
@@ -284,13 +287,13 @@ chemical structures must be included into a dynamics object.  </p>
 		</div>
 	
 	        <div class="row">
-<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_other_names"><a title="Aliases: other names that are obtained from PubChem or otherwise from CHEMBL.">Aliases:</a></label></div><div class="col-md-6">
-		<textarea cols="40" id="id_other_names" name="other_names" rows="2" style="width:300px" placeholder="e.g. Clozaril; Fazaclo; Fazaclo Odt; HF-1854"></textarea></div>
+<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_other_names"><a title="Aliases: Other names that are obtained from PubChem or otherwise from ChEMBL.">Aliases:</a></label></div><div class="col-md-6">
+		<textarea cols="40" id="id_other_names" name="other_names" rows="2" style="width:300px" placeholder=" Clozaril; Fazaclo; Fazaclo Odt; HF-1854"></textarea></div>
 		</div>
 
 	        <div class="row">
-		<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_type"><a title="Type: type of compound that forms part of a complex_exp. VALUES: ('Orthosteric ligand', 'Allosteric ligand', 'Crystallographic waters', 'Other').  ">Type:</a></label></div>
-		<div class="col-md-4"><select id="id_type" name="type" rows="2" style="width:300px" placeholder="e.g. Allosteric Ligand">
+		<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_type"><a title="Type: Type of compound that forms part of a complex_exp.">Type:</a></label></div>
+		<div class="col-md-4"><select id="id_type" name="type" rows="2" style="width:300px" placeholder=" Allosteric Ligand">
                                 <option selected="selected" value="1">Orthosteric ligand</option>
                                 <option value="2">Allosteric ligand</option>
                                 <option value="3">Cristallographic waters</option>
@@ -298,12 +301,12 @@ chemical structures must be included into a dynamics object.  </p>
                         </select></div>
 		</div><br>
 	        <div class="row">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-4"><label for="id_is_present"><a title="Not present in model: This molecule is not considered as a part of the model, i.e. solvent and lipid membrane molecules, ions and other molecules is randomized or not specified when building the system.">Not present in model:</a></label></div>
-			<div class="col-md-6"><input id="id_is_present" name="is_present" type="checkbox"></div>
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-8"><label for="id_is_present"><a title="Present in model: This molecule is considered as a part of the model. Remember that only molecules that have coordinates coming from experimental data or that are crucial for the setting of the simulation must be considered as a model element (Provide coordinates information in step 3). Otherwise they must be included into the 'Dynamics form'(step 4), i.e. solvent and lipid membrane molecules, ions and other molecules whose coordinates are randomly generated or not specified when building the system.">Present in experimental or computational model:</a></label></div>
+			<div class="col-md-3"><input id="id_is_present" name="is_present" type="checkbox"></div>
 		</div><br>
 		<div class="row" id="PRUEBA">
         		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-5"><label for="id_molsdf"><a title="Upload .mol, .sdf: Upload either a .mol or a .sdf file describing geometry of the small molecule"> Upload .mol, .sdf </a> </label></div>
-			<div class="col-md-6"><input id="id_molsdf" name="molsdf" style="height:25px;text-align:center;" placeholder="e.g.   " type="file"></div>
+			<div class="col-md-6"><input id="id_molsdf" name="molsdf" style="height:25px;text-align:center;" placeholder="   " type="file"></div>
       		</div>
 		<div class="row" id="PRUEBA">
         		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-5"></div>
@@ -342,22 +345,22 @@ chemical structures must be included into a dynamics object.  </p>
 
 	        <div class="row">
 			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_description"><a title="Description: Description about which specific protonation, resonance state or confomation is represented in this “molecule”.">Description:</a></label></div>
-			<div class="col-md-6"><textarea cols="40" style="width:300px" id="id_description" name="description" rows="2" placeholder="e.g. Standard form"></textarea></div>
+			<div class="col-md-6"><textarea cols="40" style="width:300px" id="id_description" name="description" rows="2" placeholder=" Standard form"></textarea></div>
 		<br></div>
 
 	        <div class="row">
 			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_net_charge"><a title="Net charge: Net charge of the molecule structure.">Net charge:</a></label></div>
-			<div class="col-md-6"><input style="width:300px" id="id_net_charge" name="net_charge" placeholder="e.g. 0" type="number"></div>
+			<div class="col-md-6"><input style="width:300px" id="id_net_charge" name="net_charge" placeholder=" 0" type="number"></div>
 		<br></div>
 	
 	        <div class="row">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_inchi"><a title="InChI: IUPAC International Chemical Identifier (InChI) of the “molecule”.">InChI:</a></label></div>
-			<div class="col-md-6"><textarea style="width:300px" cols="40" id="id_inchi" name="inchi" rows="2" placeholder="e.g. 1S/C18H19ClN4/c1-22-8-10-23(11-9-22)18-14-4-2-3-5-15(14)20-16-7-6-13(19)12-17(16)21-18/h2-7,12,20H,8-11H2,1H3"></textarea></div>	
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_inchi"><a title="InChI: IUPAC International Chemical Identifier (InChI) of the molecule.">InChI:</a></label></div>
+			<div class="col-md-6"><textarea style="width:300px" cols="40" id="id_inchi" name="inchi" rows="2" placeholder=" 1S/C18H19ClN4/c1-22-8-10-23(11-9-22)18-14-4-2-3-5-15(14)20-16-7-6-13(19)12-17(16)21-18/h2-7,12,20H,8-11H2,1H3"></textarea></div>	
 		<br></div>
 
 	        <div class="row">
 			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_sinchikey"><a title="SInChIKey: Molecule Standard InChI's hash">SInChIKey:</a></label></div>
-			<div class="col-md-3"><input style="width:300px" id="id_sinchikey" maxlength="27" name="sinchikey" placeholder="e.g. ZUXABONWMNSFBN-UHFFFAOYSA-N" type="text"></div>
+			<div class="col-md-3"><input style="width:300px" id="id_sinchikey" maxlength="27" name="sinchikey" placeholder=" ZUXABONWMNSFBN-UHFFFAOYSA-N" type="text"></div>
 		<br></div>
 	        <div class="row">
 			<div class="col-md-5" style="height:30px"></div><div class="col-md-4"><button style="width:200px;text-align:center;" type="button" onclick="alert('Hi!!!')">Get data</button></div>
@@ -365,18 +368,18 @@ chemical structures must be included into a dynamics object.  </p>
 
 	        <div class="row">
 			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_inchikey"><a title="InChIKey: Molecule InChI's hash">InChIKey:</a></label></div>
-			<div class="col-md-3"><input style="width:300px" id="id_inchikey" maxlength="27" name="inchikey" placeholder="e.g. ZUXABONWMNSFBN-UHFFFAOYSA-N" type="text"></div>
+			<div class="col-md-3"><input style="width:300px" id="id_inchikey" maxlength="27" name="inchikey" placeholder=" ZUXABONWMNSFBN-UHFFFAOYSA-N" type="text"></div>
 		<br></div>
 	        
 
 <!--	        <div class="row">
 			<div class="col-md-1"style="height:30px"></div><div class="col-md-3"><label for="id_inchicol"><a title="The default value of this column is '1'. The value has to be incremented in case of collision of several InChIKeys in order that “InChIkey” + “InChIcol” values are always unique.">InChIcol:</a></label></div>
-			<div class="col-md-6"><input style="width:300px" id="id_inchicol" name="inchicol" type="number" placeholder="e.g.   "/></div>
+			<div class="col-md-6"><input style="width:300px" id="id_inchicol" name="inchicol" type="number" placeholder="   "/></div>
 		<br></div> -->
 
 	        <div class="row">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_smiles"><a title="Open SMILES: Canonical smiles representation of the molecule in PubChem format.">Open SMILES:</a></label></div>
-			<div class="col-md-6"><textarea cols="40" style="width:300px" id="id_smiles" name="smiles" rows="2" placeholder="e.g. CN1CCN(CC1)C2=Nc3cc(Cl)ccc3Nc4ccccc24"></textarea>
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_smiles"><a title="Open SMILES: Canonical SMILES representation of the molecule.">Open SMILES:</a></label></div>
+			<div class="col-md-6"><textarea cols="40" style="width:300px" id="id_smiles" name="smiles" rows="2" placeholder=" CN1CCN(CC1)C2=Nc3cc(Cl)ccc3Nc4ccccc24"></textarea>
 		</div><br></div>
 
 			<br>
@@ -465,7 +468,7 @@ chemical structures must be included into a dynamics object.  </p>
 <script src="molecule_files/jquery_post.js"></script>
 
 <script src="molecule_files/toolbar.js"></script>
-<div id="djDebug" dir="ltr" data-store-id="4f94b748f0c8486694db5780d8c482bb" data-render-panel-url="/__debug__/render_panel/" style="display: block;" hidden="hidden">
+<div id="djDebug" dir="ltr" data-store-id="5bc92beb85444abe9782606d6326d7cc" data-render-panel-url="/__debug__/render_panel/" style="display: block;" hidden="hidden">
 	<div id="djDebugToolbar" style="" hidden="hidden">
 		<ul id="djDebugPanelList">
 			
@@ -496,7 +499,7 @@ chemical structures must be included into a dynamics object.  </p>
 					Time
 					
 					
-						<br><small>CPU: 518.97ms (849.76ms)</small>
+						<br><small>CPU: 227.33ms (535.66ms)</small>
 					
 					
 					

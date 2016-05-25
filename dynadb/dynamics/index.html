@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0038)/dynadb/dynamics/ -->
+<!-- saved from url=(0037)/dynadb/protein/ -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -181,26 +181,37 @@
     <div class="container" id="content">
         
 
-<form method="post" action="/dynadb/dynamics/" enctype="multipart/form-data">
+<form method="post" action="/dynadb/protein/" enctype="multipart/form-data"><input name="csrfmiddlewaretoken" value="afF8S7UKvaHmulqSeJVQA5hDYM4MvIDo" type="hidden">
 
  <!-- description column -->
  <div class="col-md-4">
+
      <div class="col-md-12 panel panel-primary" style="background-color:blue;text-align:center;color:white;">   
          <div class="panel-body">
-        	<h3> Simulation Submission<br>Step 4:<br>Dynamcis Information</h3>
-        </div> 
+        	<h3> Simulation Submission<br>Step 1:<br>Protein Information</h3>
+         </div> 
      </div>
+
      <!-- main description -->
      <div class="col-md-12 panel panel-primary">
          <div class="panel-body">
             <div style="text-align:center"> 
-             <h4>FILL IN THE DYNAMICS FORM</h4>
-            </div>
-             <p style="text-align: justify;">Fill in the following form concerning specific details on the MD simulation protocol. </p>
-             <p style="text-align: justify;">Molecular dynamics metadata
- and files required to being able to rerun simulations in a specific 
-simulation software. Adding files that are need to regenerate topology 
-files are mandatory if they are not publish elsewhere.</p>
+             <h4>FILL IN THE PROTEIN FORM</h4>
+	    </div>
+             <p style="text-align: justify;">Fill in the form with the relevant data concerning the receptor involved in the simulation.</p>
+             <p style="text-align: justify;">Proteins information is 
+linked to a canonical sequence obtained from UniProtKB/Swiss-Prot and 
+identified by a UniProtKB accession number (AC).</p>
+
+ 
+	     <p style="text-align: justify;">Mutated proteins must be specified
+ by providing wild type UniProtKB AC and mutated sequence or punctual 
+mutations. Gaps created by insertions and deletions are specified by a 
+hyphen character (‘-’).</p><p>
+
+	     </p><p style="text-align: justify;">Several proteins can be added 
+in a single submission but at least one must be a G protein-coupled 
+receptor (GPCR) whose sequence must have been deposited on GPCRdb. </p>
 
          </div>
      </div>
@@ -210,11 +221,9 @@ files are mandatory if they are not publish elsewhere.</p>
          <div class="panel-body">
              <p>For more information on this form, see the <a href="http://docs.gpcrdb.org/receptors.html">docs</a>.
              </p>
-
- 
          </div>
      </div>
- </div>
+  </div>
  <!--   _____________________________________________________________________________________________-->
 
 <!-- middle column -->
@@ -227,209 +236,123 @@ files are mandatory if they are not publish elsewhere.</p>
 <!--        <h4> <a title="Table containing molecular dynamic metadata"> dyndb_Dynamics Table:</a></h4> <br> -->
 <!--	<div style=display:table;>  -->
 
-		<div class="row" id="PRUEBA">
  			<div style="text-align:center">
-             			<h4><br>Simulation details</h4>
-            		</div>
-		</div><br>
-
-		<div class="row">
- 			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_id_dynamics_methods"> <a title="Method: ID for the classification of molecular dynamics simulation methods."> Method: </a> </label></div>
-			<div class="col-md-6"><select id="id_id_dynamics_methods" name="id_dynamics_methods" style="width:300px">
-        			<option value="" selected="selected">---------</option>
-		        	<option value="1">Molecular Mechanics                   </option>
-		        	<option value="2">Quantum Mechanics/Molecular Mechanics </option>
-		        	<option value="3">NMR                           </option>
-        			<option value="4">Molecular Mechanics Markov State Model </option>
-       				<option value="5">Methadynamics              </option>
-		        	<option value="6">Umbrella sampling          </option>
-		        	<option value="7">Other MM biased methods    </option>
-		        	<option value="8">MM scaled potentials       </option>
-	        	</select></div>
+             			<h4><br>Protein Sequence Details</h4>
+            		</div><br>
+	        <div class="row">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_name"><a title="Name: Recommended name from UniProtK. ">Name:</a></label></div>
+			<div class="col-md-6"><input id="id_name" maxlength="60" name="name" style="width:300px" placeholder=" 5-HT1B receptor" type="text"></div>
 		<br></div>
 
 	        <div class="row">
-        		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-3"><label for="id_software"> <a title="Software: Name of the software used to compute the simulations (without version)."> Software: </a> </label></div>
-			<div class="col-md-6"><input id="id_software" maxlength="30" name="software" style="width:300px" placeholder="e.g. ACEMD" type="text"></div>
-		<br></div>	
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_uniprotkbac"><a title="UniprotKB AC: UniProtK Accession Number. This value identifies protein to their cannonical sequences. Use only Accession Numbers for cannonical sequences. Mutations are handled in a different field. ">UniprotKB AC:</a></label></div>
+			<div class="col-md-6"><input id="id_uniprotkbac" maxlength="10" name="uniprotkbac" style="width:300px" placeholder=" P28222" type="text"></div>
+		<br></div>
+			
+	        <div class="row">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_isoform"><a title="Isoform: Isoform number for a UniProtKB Accession Number. Cannonical sequences have the value '1'.">Isoform:</a></label></div>
+			<div class="col-md-3"><input id="id_isoform" name="isoform" style="width:140px" placeholder=" 1" type="number"></div>
+			<div class="col-md-3" style="margin-left:1.5%"><button style="width:140px;" type="button">Validate </button></div>
+		<br></div>
+	        <div class="row" style="padding:10px 0px 0px 0px">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-5"><label for="id_receptor"><a title="Receptor: This value must be checked if the protein is a GPCR.">Is it a receptor? </a></label></div>
+			<div class="col-md-5"><input id="id_receptor" name="receptor" type="checkbox"></div>
+	        </div>
+		<div class="row" style="padding:0px 0px 10px 0px">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-5"><label for="id_is_mutated"><a title="Mutant: This value must be checked if the protein sequence differs from the one identified at UniProtKB by “UniprotKB AC” and “isoform”.">Is it a mutant?</a></label></div>
+			<div class="col-md-1"><input id="id_is_mutated" name="is_mutated" type="checkbox"></div>
+		<br></div>
+
+	 <!--       <div class="row">
+			<div class="col-md-1"style="height:30px"></div><div class="col-md-3"><label for="id_receptor_id_protein"><a title="“Id” for the “protein” stored in GPCRDB. This value must be set if the protein is a GPCR. Otherwise is set to NULL. Foreign key to “protein”.”id”. ">Receptor id protein:</a></label></div>
+			<div class="col-md-6"><select id="id_receptor_id_protein" name="receptor_id_protein" style="width:300px">
+				<option value="" selected="selected">---------</option>
+				<option value="1">DyndbProtein object</option>
+				<option value="2">DyndbProtein object</option>
+				<option value="3">DyndbProtein object</option>
+			</select></div>
+		<br></div> -->
 
 	        <div class="row">
-	        	 <div class="col-md-1" style="height:30px"> </div><div class="col-md-3"><label for="id_sversion"> <a title="Software version: Version of the software used to compute the simulations."> Software version: </a></label></div>
-			<div class="col-md-6"><input id="id_sversion" maxlength="15" name="sversion" style="width:300p" placeholder="e.g. 3212M" type="text"></div>
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_id_species"><a title="Species: Protein sequence species.">Species:</a></label></div>
+			<div class="col-md-6" style="height:30px"><select id="id_id_species" name="id_species" style="width:300px" placeholder=" Homo Sapiens">
+				<option value="0" selected="selected">Homo Sapiens</option>
+				<option value="1">Homo Sapiens</option>
+				<option value="2">Other</option>
+			</select></div>
 		<br></div>
 
 	        <div class="row">
-        		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-3"><label for="id_ff"> <a title="Force Field: Name of the force-field used to compute the simulations (without version)."> Force Field: </a> </label></div>
-			<div class="col-md-6"><input id="id_ff" maxlength="20" name="ff" style="width:300px" placeholder="e.g. CHARMM " type="text"></div>
-		<br></div>
+<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_other_names"><a title="Aliases: other names that are obtained from UniProtK Swiss-Prot.">Aliases:</a></label></div><div class="col-md-6">
+		<textarea cols="40" id="id_other_names" name="other_names" rows="2" style="width:300px" placeholder=" 5-hydroxytryptamine receptor 1B; Serotonin receptor 1B"></textarea></div>
+		</div>
 
 	        <div class="row">
-	        	 <div class="col-md-1" style="height:30px"> </div><div class="col-md-3"><label for="id_ffversion"> <a title="FF version: Version of the force field used to compute the simulations."> FF version: </a> </label> </div>
-			<div class="col-md-6"><input id="id_ffversion" maxlength="15" name="ffversion" style="width:300px" placeholder="e.g. 36  " type="text"></div>
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_sequence"><a title="Sequence: Sequence of the protein in  IUPAC one letter code with the format specified in ”Resletter to”.">Sequence:</a></label></div>
+			<div class="col-md-6"><textarea cols="40" id="id_sequence" name="sequence" rows="2" style="width:300px" placeholder=" MEEPGAQCAPPPPAGSETWVPQANLSSAPSQNCSAKDYIYQDSISLPWKVLLVMLLALITLATTLSNAFVIATVYRTRKLHTPANYLIASLAVTDLLVSILVMPISTMYTVTGRWTLGQVVCDFWLSSDITCCTASILHLCVIALDRYWAITDAVEYSAKRTPKRAAVMIALVWVFSISISLPPFFWRQAKAEEEVSECVVNTDHILYTVYSTVGAFYFPTLLLIALYGRIYVEARSRILKQTPNRTGKRLTRAQLITDSPGSTSSVTSINSRVPDVPSESGSPVYVNQVKVRVSDALLEKKKLMAARERKATKTLGIILGAFIVCWLPFFIISLVMPICKDACWFHLAIFDFFTWLGYLNSLINPIIYTMSNEDFKQAFHKLIRFKCTS"></textarea></div>
 		<br></div>
 
-	        <div class="row">
-	        	 <div class="col-md-1" style="height:30px"> </div><div class="col-md-3"><label for="id_description"><a title="Description: Short text describing other relevant information that it is not contained on other fields. ">Description:</a> </label></div>
-			<div class="col-md-6"><textarea cols="40" id="id_description" name="description" rows="2" style="width:300px" placeholder="e.g. MSM binding kinectic study. "></textarea></div>
-		<br></div>
-
-	        <div class="row">
-        		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-3"><label for="id_id_assay_types"><a title="Assay type: ID for the classification of molecular dynamics simulation methods."> Assay type:</a> </label></div>
-			<div class="col-md-6"><select id="id_id_assay_types" name="id_assay_types" style="width:300px" placeholder="e.g.  "> 
-		        	<option value="" selected="selected">---------</option> 
-			        <option value="1">Orthosteric binding/unbinding</option>
-			        <option value="2">Allosteric binding/unbinding</option>
-			        <option value="3">Activation/Inactivation/Modulation</option>
-			        <option value="4">Oligomerization</option>
-			        <option value="5">Protein partner coupling</option>
-		        </select></div>
-		<br></div>
-
-	        <div class="row">
-	        	 <div class="col-md-1" style="height:30px"> </div><div class="col-md-3"><label for="id_id_dynamics_membrane_types"><a title="Membrane type: id for the classification of membranes used in molecular dynamics simulation methods. "> Membrane type:</a> </label></div>
-			<div class="col-md-6"><select id="id_id_dynamics_membrane_types" name="id_dynamics_membrane_types" style="width:300px" placeholder="e.g.  ">
-        			<option value="" selected="selected">---------</option>
-			        <option value="1">Implicit</option>
-			        <option value="2">Homogeneous</option>
-			        <option value="3">Heterogeneous</option>
-		        </select></div>
-		<br></div>
-
-	        <div class="row">
-        		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-3"><label for="id_id_dynamics_solvent_types"><a title="Solvent type: ID for the classification of solvent models used in molecular dynamics simulation methods. "> Solvent type:</a> </label></div>
-			<div class="col-md-6"><select id="id_id_dynamics_solvent_types" name="id_dynamics_solvent_types" style="width:300px" placeholder="e.g.  ">
-		        	<option value="" selected="selected">---------</option>
-			        <option value="1">Implicit</option>
-			        <option value="2">TIP3P</option>
-			        <option value="3">TIP4P</option>
-		        	<option value="4">TIPS</option>
-			        <option value="5">SPC</option>
-			        <option value="6">SPC/E</option>
-			        <option value="7">Other</option>
-	        	</select></div>
-		<br></div>
-
-	        <div class="row">
-        		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-3"><label for="id_solvent_num"><a title="Solvent num: Number of solvent molecules">Solvent num:</a> </label></div>
-			<div class="col-md-6"><input id="id_solvent_num" name="solvent_num" style="width:300px" placeholder="e.g. 10000 " type="number"></div>
-		<br></div><br>
-
-
+		<br>
 		<div class="row" id="PRUEBA">
+			
  			<div style="text-align:center">
-             			<h4>Upload the Simulation Files</h4>
+             			<h4>Receptor Mutations</h4>
             		</div>
-		</div><br>
 
-
-		<div class="row" id="PRUEBA">
-        		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-5"><label for="id_coor"><a title="Input coordinates: Upload the initial coordinates file of the system"> Input coordinates (coor)</a> </label></div>
-			<div class="col-md-6"><input id="id_coor" name="coor" type="file"></div>
-      		</div>
-
-		<div class="row" id="PRUEBA">
-        		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-5"><label for="id_top"><a title=" Input topology: Upload the file describing the topology of your system"> Input topology (top)</a> </label></div>
-			<div class="col-md-6"><input id="id_top" name="top" type="file"></div>
-      		</div>
-
-		<div class="row" id="PRUEBA">
-        		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-5"><label for="id_traj"><a title="Trajectory: Upload the file containing the evolution of the system coordinates with time"> Trajectory (traj)</a> </label></div>
-			<div class="col-md-6"><input id="id_traj" name="traj" type="file"></div>
-      		</div>
-
-		<div class="row" id="PRUEBA">
-        		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-5"><label for="id_parm"><a title=" Simulation parameters: Upload the file containing the force field parameters"> Simulation parameters (param)</a> </label></div>
-			<div class="col-md-6"><input id="id_parm" name="parm" type="file"></div>
-      		</div>
-
-		<div class="row" id="PRUEBA">
-        		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-5"><label for="id_other"><a title="Others: Additional files needed for rerunning the simulation "> Others </a> </label></div>
-			<div class="col-md-6"><input id="id_other" name="other" type="file"></div>
-      		</div><br>
-
- 			<div style="text-align:right;margin-right:5%">
-					<button onclick="addFields()"> Validate </button> 
-		        </div> 		
-
-
-		<div class="row" id="PRUEBA">
- 			<div style="text-align:center">
-             			<h4> Simulation Components</h4>
-            		</div>
-		</div><br>
-
- 			<div style="text-align=center">
-                        <table style="text-align=center;width:80%;margin-left:10%;margin-right:10%;"> 
-				<tbody><tr><th style="width:80px;text-align:center"><label for="id_resname"><a title="Resname: Resname present on simulation topology file. Names from pdb are preferred but not mandatory. ">Resname</a></label></th>	
-					<th style="width:80px;text-align:center"><label for="molecule"><a title=" ">Molecule</a></label></th>
-					<th style="width:80px;text-align:center"><label for="id_id_molecule"><a title="Mol ID: ID of the chemical model (“molecule”) present in  “dynamics”. ">Mol ID</a></label></th>
-					<th style="width:80px;text-align:center"><label for="id_name"><a title="Mol name: Name of the molecule">Mol name</a></label></th>
-					<th style="width:80px;text-align:center"><label for="id_numberofmol"><a title="Number of molecules: Number of molecules (residues) with same “id_molecule” present on simulation topology. ">Num of mol</a></label></th>
-					<th style="width:80px;text-align:center"><label for="id_type"><a title="Type: Type of compound/molecule present in the simulation. VALUES: ('Ions', 'Ligand', 'Membrane','Water', 'Other'). ">Type</a></label></th>
-
-				</tr><tr>	<td style="padding:5px 5px 5px 5px"><input style="width:70px" id="id_resname" maxlength="4" name="resname" placeholder="e.g. CLOZ" type="text"></td>
-					<td style="padding:5px 5px 5px 5px"><input style="width:70px" id="molecule" maxlength="4" name="molecule" placeholder="e.g. 1 " type="text"></td>
-					<td style="padding:5px 5px 5px 5px"><select style="width:70px" id="id_id_molecule" name="id_molecule">
-						<option value="" selected="selected">---------</option>
-						<option value="1">DyndbMolecule object</option>
-						<option value="3">DyndbMolecule object</option>
-						<option value="4">DyndbMolecule object</option>
-						<option value="5">DyndbMolecule object</option>
-						<option value="6">DyndbMolecule object</option>
-						<option value="7">DyndbMolecule object</option>
-						<option value="2">DyndbMolecule object</option>
-						</select></td>
-					<td style="padding:5px 5px 5px 5px"><input id="id_name" maxlength="60" name="name" style="width:70px" placeholder="Clozapine" type="text"></td>
-					<td style="padding:5px 5px 5px 5px"><input id="id_numberofmol" min="0" name="numberofmol" style="width:70px" placeholder="e.g. 2" type="number"></td>
-					<td style="padding:5px 5px 5px 5px"><select id="id_type" name="type" style="width:60px">
-						<option value="Ions" selected="selected">Ions</option>
-						<option value="Ligand">Ligand</option>
-						<option value="Membrane">Membrane</option>
-						<option value="Water">Water</option>
-						<option value="Other">Other</option>
-						</select></td></tr>
+                        <div class="row" id="container">   
+				</div><div id="container">
+					</div><table align="center">
+				<tbody><tr>	<th style="width:80px;text-align:center"><label for="id_resid"><a title="Resid: Residue number that its mutated on cannonical protein.">Resid</a></label></th>
+					<th style="width:80px;text-align:center"><label for="id_resletter_from"><a title=" Resletter from: Residue name in IUPAC one letter code that is present on cannonical protein. '-' character is used in case of insertions.">Resletter from</a></label></th>
+					<th style="width:80px;text-align:center"><label for="id_resletter_to"><a title=" Resletter to: Residue name in IUPAC one letter code that is present on mutated protein. '-' character is used in case of deletions and 'X' for engineered residues.">Resletter to</a></label></th></tr>
+					<tr><th style="width:80px;text-align:center"></th></tr>
+			 	<tr> 	<td style="padding:5px 5px 5px 5px"><input style="width:140px;" id="id_resid" name="resid" placeholder=" 95" type="number"></td>
+					<td style="padding:5px 5px 5px 5px"><input style="width:140px;" id="id_resletter_from" maxlength="1" name="resletter_from" placeholder=" D" type="text"></td>
+					<td style="padding:5px 5px 5px 5px"><input style="width:140px;" id="id_resletter_to" maxlength="1" name="resletter_to" placeholder=" A" type="text"></td>	
+					<td style="padding:5px 5px 5px 5px"><button style="width:140px;" onclick="addFields()"> + Add mutation </button>	
+				</td></tr>
+				 
+					
 
 			</tbody></table>
-
-
-
-
-
-
-
-
-
-
-
-
-			<br>
+		</div>
+ 	<div class="col-md-6">
+		<p style="margin-right:10%;margin-left:40%;padding:5px 5px 5px 5px"><button style="width:120px;" onclick="addFields()"><a title="Manually requested mutations in the Receptor Mutation section are applied after clicking herein. 'Sequence' field is automatically updated with the mutated sequence.">  Apply mutations</a> </button></p>
+	</div>
+ 	<div class="col-md-6">
+		<p style="margin-right:40%;margin-left:10%;padding:5px 5px 5px 5px"><button style="width:120px;" onclick="addFields()"><a title="Mutations are identified after comparing the sequence supplied in the 'Sequence' field with the canonical sequence from UniprotKB.">  Get mutations</a> </button></p>
+		
+		        </div><br>
+</div>
  			<div style="text-align:center">
-					<button onclick="addFields()"> + Add component </button> 
+					<button style="height:30px;width:400px" onclick="addFields()"> + Add protein </button> 
 		        </div> 		
- 			<div style="text-align:right;margin-right:5%">
-					<button onclick="addFields()"> Validate </button> 
-		        </div> 		
-     </div>
-     </div>
-  </div>
-  <div id="selection-buttons">
+			<br><br>
+</div>
+
+<!--        <th><input type="submit" value="Submit" /> </th><br>   -->
+
+<!--           <div id="selection-buttons"> -->
+
       <div class="col-md-12 panel panel-primary">
   	  <div class="panel-body" id="selection-">
-        	<a id="selection-button" href="/dynadb/submitted/" class="btn btn-success btn-lg btn-block has-spinner">
-            <span class="spinner"><i class="fa fa-spinner fa-spin"></i></span>  Submission </a>
+        	<a id="selection-button" href="/dynadb/molecule/" class="btn btn-success btn-lg btn-block has-spinner">
+            <span class="spinner"><i class="fa fa-spinner fa-spin"></i></span> Continue to step 2: Small Molecule Information </a>
       	  </div>
   	  <div class="panel-body" id="selection-">
-        	<a id="selection-button" href="/dynadb/model/" class="btn btn-success btn-lg btn-block has-spinner">
-            <span class="spinner"><i class="fa fa-spinner fa-spin"></i></span> Back to step 3: Model Information </a>
+        	<a id="selection-button" href="/dynadb/db_inputform/" class="btn btn-success btn-lg btn-block has-spinner">
+            <span class="spinner"><i class="fa fa-spinner fa-spin"></i></span> Back to index </a>
       	  </div>
       </div>
-  </div>
-</div>
+
+
+   </div>
+
 
     </form></div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="dynamics_files/jquery.js"></script>
+    <script src="dynamics_files/jquery_002.js"></script>
     <!-- jQueryUI -->
     <link rel="stylesheet" href="dynamics_files/jquery-ui.css" type="text/css" media="all">
     <link rel="stylesheet" href="dynamics_files/jquery-ui_002.css" type="text/css" media="all">
@@ -443,21 +366,21 @@ files are mandatory if they are not publish elsewhere.</p>
 
 <!-- Prevent our copy of jQuery from registering as an AMD module on sites that use RequireJS. -->
 <script src="dynamics_files/jquery_pre.js"></script>
-<script src="dynamics_files/jquery_002.js"></script>
+<script src="dynamics_files/jquery.js"></script>
 <script src="dynamics_files/jquery_post.js"></script>
 
 <script src="dynamics_files/toolbar.js"></script>
-<div id="djDebug" dir="ltr" data-store-id="214533b6028148d4baee2d012a69cd3f" data-render-panel-url="/__debug__/render_panel/" style="display: block;" hidden="hidden">
+<div id="djDebug" dir="ltr" data-store-id="c94db214063d4a87af68d4f079032164" data-render-panel-url="/__debug__/render_panel/" style="display: block;" hidden="hidden">
 	<div id="djDebugToolbar" style="" hidden="hidden">
 		<ul id="djDebugPanelList">
 			
-			<li><a id="djHideToolBarButton" href="/dynadb/dynamics/#" title="Hide toolbar">Hide »</a></li>
+			<li><a id="djHideToolBarButton" href="/dynadb/protein/#" title="Hide toolbar">Hide »</a></li>
 			
 			
 				<li class="djDebugPanelButton">
 					<input data-cookie="djdtVersionsPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
 					
-						<a href="/dynadb/dynamics/#" title="Versions" class="VersionsPanel">
+						<a href="/dynadb/protein/#" title="Versions" class="VersionsPanel">
 					
 					Versions
 					
@@ -473,12 +396,12 @@ files are mandatory if they are not publish elsewhere.</p>
 				<li class="djDebugPanelButton">
 					<input data-cookie="djdtTimerPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
 					
-						<a href="/dynadb/dynamics/#" title="Time" class="TimerPanel">
+						<a href="/dynadb/protein/#" title="Time" class="TimerPanel">
 					
 					Time
 					
 					
-						<br><small>CPU: 216.98ms (545.48ms)</small>
+						<br><small>CPU: 394.00ms (750.46ms)</small>
 					
 					
 					
@@ -489,7 +412,7 @@ files are mandatory if they are not publish elsewhere.</p>
 				<li class="djDebugPanelButton">
 					<input data-cookie="djdtSettingsPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
 					
-						<a href="/dynadb/dynamics/#" title="Settings from &lt;code&gt;protwis.settings&lt;/code&gt;" class="SettingsPanel">
+						<a href="/dynadb/protein/#" title="Settings from &lt;code&gt;protwis.settings&lt;/code&gt;" class="SettingsPanel">
 					
 					Settings
 					
@@ -505,7 +428,7 @@ files are mandatory if they are not publish elsewhere.</p>
 				<li class="djDebugPanelButton">
 					<input data-cookie="djdtHeadersPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
 					
-						<a href="/dynadb/dynamics/#" title="Headers" class="HeadersPanel">
+						<a href="/dynadb/protein/#" title="Headers" class="HeadersPanel">
 					
 					Headers
 					
@@ -521,12 +444,12 @@ files are mandatory if they are not publish elsewhere.</p>
 				<li class="djDebugPanelButton">
 					<input data-cookie="djdtRequestPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
 					
-						<a href="/dynadb/dynamics/#" title="Request" class="RequestPanel">
+						<a href="/dynadb/protein/#" title="Request" class="RequestPanel">
 					
 					Request
 					
 					
-						<br><small>DYNAMICSview</small>
+						<br><small>PROTEINview</small>
 					
 					
 					
@@ -537,7 +460,7 @@ files are mandatory if they are not publish elsewhere.</p>
 				<li class="djDebugPanelButton">
 					<input data-cookie="djdtSQLPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
 					
-						<a href="/dynadb/dynamics/#" title="SQL queries from 0 connections" class="SQLPanel">
+						<a href="/dynadb/protein/#" title="SQL queries from 0 connections" class="SQLPanel">
 					
 					SQL
 					
@@ -553,7 +476,7 @@ files are mandatory if they are not publish elsewhere.</p>
 				<li class="djDebugPanelButton">
 					<input data-cookie="djdtStaticFilesPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
 					
-						<a href="/dynadb/dynamics/#" title="Static files (424 found, 8 used)" class="StaticFilesPanel">
+						<a href="/dynadb/protein/#" title="Static files (424 found, 8 used)" class="StaticFilesPanel">
 					
 					Static files
 					
@@ -569,12 +492,12 @@ files are mandatory if they are not publish elsewhere.</p>
 				<li class="djDebugPanelButton">
 					<input data-cookie="djdtTemplatesPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
 					
-						<a href="/dynadb/dynamics/#" title="Templates (5 rendered)" class="TemplatesPanel">
+						<a href="/dynadb/protein/#" title="Templates (5 rendered)" class="TemplatesPanel">
 					
 					Templates
 					
 					
-						<br><small>dynadb/DYNAMICS.html</small>
+						<br><small>dynadb/PROTEIN.html</small>
 					
 					
 					
@@ -585,7 +508,7 @@ files are mandatory if they are not publish elsewhere.</p>
 				<li class="djDebugPanelButton">
 					<input data-cookie="djdtCachePanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
 					
-						<a href="/dynadb/dynamics/#" title="Cache calls from 1 backend" class="CachePanel">
+						<a href="/dynadb/protein/#" title="Cache calls from 1 backend" class="CachePanel">
 					
 					Cache
 					
@@ -601,7 +524,7 @@ files are mandatory if they are not publish elsewhere.</p>
 				<li class="djDebugPanelButton">
 					<input data-cookie="djdtSignalsPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
 					
-						<a href="/dynadb/dynamics/#" title="Signals" class="SignalsPanel">
+						<a href="/dynadb/protein/#" title="Signals" class="SignalsPanel">
 					
 					Signals
 					
@@ -617,7 +540,7 @@ files are mandatory if they are not publish elsewhere.</p>
 				<li class="djDebugPanelButton">
 					<input data-cookie="djdtLoggingPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
 					
-						<a href="/dynadb/dynamics/#" title="Log messages" class="LoggingPanel">
+						<a href="/dynadb/protein/#" title="Log messages" class="LoggingPanel">
 					
 					Logging
 					
@@ -651,7 +574,7 @@ files are mandatory if they are not publish elsewhere.</p>
 		
 			<div id="VersionsPanel" class="djdt-panelContent" style="display: none;">
 				<div class="djDebugPanelTitle">
-					<a href="/dynadb/dynamics/" class="djDebugClose"></a>
+					<a href="/dynadb/protein/" class="djDebugClose"></a>
 					<h3>Versions</h3>
 				</div>
 				<div class="djDebugPanelContent">
@@ -666,7 +589,7 @@ files are mandatory if they are not publish elsewhere.</p>
 		
 			<div id="TimerPanel" class="djdt-panelContent" style="display: none;">
 				<div class="djDebugPanelTitle">
-					<a href="/dynadb/dynamics/" class="djDebugClose"></a>
+					<a href="/dynadb/protein/" class="djDebugClose"></a>
 					<h3>Time</h3>
 				</div>
 				<div class="djDebugPanelContent">
@@ -681,7 +604,7 @@ files are mandatory if they are not publish elsewhere.</p>
 		
 			<div id="SettingsPanel" class="djdt-panelContent" style="display: none;">
 				<div class="djDebugPanelTitle">
-					<a href="/dynadb/dynamics/" class="djDebugClose"></a>
+					<a href="/dynadb/protein/" class="djDebugClose"></a>
 					<h3>Settings from <code>protwis.settings</code></h3>
 				</div>
 				<div class="djDebugPanelContent">
@@ -696,7 +619,7 @@ files are mandatory if they are not publish elsewhere.</p>
 		
 			<div id="HeadersPanel" class="djdt-panelContent" style="display: none;">
 				<div class="djDebugPanelTitle">
-					<a href="/dynadb/dynamics/" class="djDebugClose"></a>
+					<a href="/dynadb/protein/" class="djDebugClose"></a>
 					<h3>Headers</h3>
 				</div>
 				<div class="djDebugPanelContent">
@@ -711,7 +634,7 @@ files are mandatory if they are not publish elsewhere.</p>
 		
 			<div id="RequestPanel" class="djdt-panelContent" style="display: none;">
 				<div class="djDebugPanelTitle">
-					<a href="/dynadb/dynamics/" class="djDebugClose"></a>
+					<a href="/dynadb/protein/" class="djDebugClose"></a>
 					<h3>Request</h3>
 				</div>
 				<div class="djDebugPanelContent">
@@ -726,7 +649,7 @@ files are mandatory if they are not publish elsewhere.</p>
 		
 			<div id="SQLPanel" class="djdt-panelContent" style="display: none;">
 				<div class="djDebugPanelTitle">
-					<a href="/dynadb/dynamics/" class="djDebugClose"></a>
+					<a href="/dynadb/protein/" class="djDebugClose"></a>
 					<h3>SQL queries from 0 connections</h3>
 				</div>
 				<div class="djDebugPanelContent">
@@ -741,7 +664,7 @@ files are mandatory if they are not publish elsewhere.</p>
 		
 			<div id="StaticFilesPanel" class="djdt-panelContent" style="display: none;">
 				<div class="djDebugPanelTitle">
-					<a href="/dynadb/dynamics/" class="djDebugClose"></a>
+					<a href="/dynadb/protein/" class="djDebugClose"></a>
 					<h3>Static files (424 found, 8 used)</h3>
 				</div>
 				<div class="djDebugPanelContent">
@@ -756,7 +679,7 @@ files are mandatory if they are not publish elsewhere.</p>
 		
 			<div id="TemplatesPanel" class="djdt-panelContent" style="display: none;">
 				<div class="djDebugPanelTitle">
-					<a href="/dynadb/dynamics/" class="djDebugClose"></a>
+					<a href="/dynadb/protein/" class="djDebugClose"></a>
 					<h3>Templates (5 rendered)</h3>
 				</div>
 				<div class="djDebugPanelContent">
@@ -771,7 +694,7 @@ files are mandatory if they are not publish elsewhere.</p>
 		
 			<div id="CachePanel" class="djdt-panelContent" style="display: none;">
 				<div class="djDebugPanelTitle">
-					<a href="/dynadb/dynamics/" class="djDebugClose"></a>
+					<a href="/dynadb/protein/" class="djDebugClose"></a>
 					<h3>Cache calls from 1 backend</h3>
 				</div>
 				<div class="djDebugPanelContent">
@@ -786,7 +709,7 @@ files are mandatory if they are not publish elsewhere.</p>
 		
 			<div id="SignalsPanel" class="djdt-panelContent" style="display: none;">
 				<div class="djDebugPanelTitle">
-					<a href="/dynadb/dynamics/" class="djDebugClose"></a>
+					<a href="/dynadb/protein/" class="djDebugClose"></a>
 					<h3>Signals</h3>
 				</div>
 				<div class="djDebugPanelContent">
@@ -801,7 +724,7 @@ files are mandatory if they are not publish elsewhere.</p>
 		
 			<div id="LoggingPanel" class="djdt-panelContent" style="display: none;">
 				<div class="djDebugPanelTitle">
-					<a href="/dynadb/dynamics/" class="djDebugClose"></a>
+					<a href="/dynadb/protein/" class="djDebugClose"></a>
 					<h3>Log messages</h3>
 				</div>
 				<div class="djDebugPanelContent">
