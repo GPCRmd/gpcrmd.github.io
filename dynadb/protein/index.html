@@ -198,7 +198,7 @@
             <div style="text-align:center"> 
              <h4>FILL IN THE PROTEIN FORM</h4>
 	    </div>
-             <p style="text-align: justify;">Fill in the form with the relevant data concerning the receptor involved in the simulation.</p>
+             <p style="text-align: justify;">Fill in the form with the relevant data concerning the receptor and other proteins involved in the simulation.</p>
              <p style="text-align: justify;">Proteins information is 
 linked to a canonical sequence obtained from UniProtKB/Swiss-Prot and 
 identified by a UniProtKB accession number (AC).</p>
@@ -240,12 +240,12 @@ receptor (GPCR) whose sequence must have been deposited on GPCRdb. </p>
              			<h4><br>Protein Sequence Details</h4>
             		</div><br>
 	        <div class="row">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_name"><a title="Name: Recommended name from UniProtK. ">Name:</a></label></div>
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_name"><a title="Name: Recommended name from UniProtKB. ">Name:</a></label></div>
 			<div class="col-md-6"><input id="id_name" maxlength="60" name="name" style="width:300px" placeholder=" 5-HT1B receptor" type="text"></div>
 		<br></div>
 
 	        <div class="row">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_uniprotkbac"><a title="UniprotKB AC: UniProtK Accession Number. This value identifies protein to their cannonical sequences. Use only Accession Numbers for cannonical sequences. Mutations are handled in a different field. ">UniprotKB AC:</a></label></div>
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_uniprotkbac"><a title="UniProtKB AC: UniProtKB Accession Number. This value identifies protein to their cannonical sequences. Use only Accession Numbers for cannonical sequences. Mutations are handled in a different field. ">UniProtKB AC:</a></label></div>
 			<div class="col-md-6"><input id="id_uniprotkbac" maxlength="10" name="uniprotkbac" style="width:300px" placeholder=" P28222" type="text"></div>
 		<br></div>
 			
@@ -259,7 +259,7 @@ receptor (GPCR) whose sequence must have been deposited on GPCRdb. </p>
 			<div class="col-md-5"><input id="id_receptor" name="receptor" type="checkbox"></div>
 	        </div>
 		<div class="row" style="padding:0px 0px 10px 0px">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-5"><label for="id_is_mutated"><a title="Mutant: This value must be checked if the protein sequence differs from the one identified at UniProtKB by “UniprotKB AC” and “isoform”.">Is it a mutant?</a></label></div>
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-5"><label for="id_is_mutated"><a title="Mutant: This value must be checked if the protein sequence differs from the one identified at UniProtKB by “UniProtKB AC” and “isoform”.">Is it a mutant?</a></label></div>
 			<div class="col-md-1"><input id="id_is_mutated" name="is_mutated" type="checkbox"></div>
 		<br></div>
 
@@ -283,7 +283,7 @@ receptor (GPCR) whose sequence must have been deposited on GPCRdb. </p>
 		<br></div>
 
 	        <div class="row">
-<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_other_names"><a title="Aliases: other names that are obtained from UniProtK Swiss-Prot.">Aliases:</a></label></div><div class="col-md-6">
+<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_other_names"><a title="Aliases: other names that are obtained from UniProtKB/Swiss-Prot.">Aliases:</a></label></div><div class="col-md-6">
 		<textarea cols="40" id="id_other_names" name="other_names" rows="2" style="width:300px" placeholder=" 5-hydroxytryptamine receptor 1B; Serotonin receptor 1B"></textarea></div>
 		</div>
 
@@ -317,10 +317,10 @@ receptor (GPCR) whose sequence must have been deposited on GPCRdb. </p>
 			</tbody></table>
 		</div>
  	<div class="col-md-6">
-		<p style="margin-right:10%;margin-left:40%;padding:5px 5px 5px 5px"><button style="width:120px;" onclick="addFields()"><a title="Manually requested mutations in the Receptor Mutation section are applied after clicking herein. 'Sequence' field is automatically updated with the mutated sequence.">  Apply mutations</a> </button></p>
+		<p style="margin-right:10%;margin-left:40%;padding:5px 5px 5px 5px"><button style="width:120px;" onclick="addFields()" title="Manually requested mutations in the Receptor Mutation section are applied after clicking herein. 'Sequence' field is automatically updated with the mutated sequence."> Apply mutations</button></p>
 	</div>
  	<div class="col-md-6">
-		<p style="margin-right:40%;margin-left:10%;padding:5px 5px 5px 5px"><button style="width:120px;" onclick="addFields()"><a title="Mutations are identified after comparing the sequence supplied in the 'Sequence' field with the canonical sequence from UniprotKB.">  Get mutations</a> </button></p>
+		<p style="margin-right:40%;margin-left:10%;padding:5px 5px 5px 5px"><button title="Mutations are identified after comparing the sequence supplied in the 'Sequence' field with the canonical sequence from UniProtKB." style="width:120px;" onclick="addFields()">  Get mutations</button></p>
 		
 		        </div><br>
 </div>
@@ -370,7 +370,7 @@ receptor (GPCR) whose sequence must have been deposited on GPCRdb. </p>
 <script src="protein_files/jquery_post.js"></script>
 
 <script src="protein_files/toolbar.js"></script>
-<div id="djDebug" dir="ltr" data-store-id="c94db214063d4a87af68d4f079032164" data-render-panel-url="/__debug__/render_panel/" style="display: block;" hidden="hidden">
+<div id="djDebug" dir="ltr" data-store-id="bb7e09126c7049d9b37a839f1e1737db" data-render-panel-url="/__debug__/render_panel/" style="display: block;" hidden="hidden">
 	<div id="djDebugToolbar" style="" hidden="hidden">
 		<ul id="djDebugPanelList">
 			
@@ -401,7 +401,7 @@ receptor (GPCR) whose sequence must have been deposited on GPCRdb. </p>
 					Time
 					
 					
-						<br><small>CPU: 394.00ms (750.46ms)</small>
+						<br><small>CPU: 228.10ms (547.98ms)</small>
 					
 					
 					

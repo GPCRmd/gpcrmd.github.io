@@ -253,7 +253,7 @@ dynamics form (step 4).</p>
 			
 
 	        <div class="row">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_iupac_name"><a title="IUPAC name: IUPAC name downloaded from pubchem.">IUPAC name:</a></label></div>
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_iupac_name"><a title="IUPAC name: IUPAC name downloaded from PubChem.">IUPAC name:</a></label></div>
 			<div class="col-md-6"><input id="id_iupac_name" style="width:300px" maxlength="500" name="iupac_name" placeholder=" 3-chloro-6-(4-methylpiperazin-1-yl)-5H-benzo[b][1,4]benzodia" type="text"></div>
 		</div>
 			
@@ -273,7 +273,7 @@ dynamics form (step 4).</p>
 
 
 	        <div class="row">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_std_id_molecule"><a title="Std ID molecule: Molecule ID that represents the standard form of the compound, here the properties downloaded directly from pubchem or ChEMBL.">Std ID molecule:</a></label></div>
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_std_id_molecule"><a title="Std ID molecule: Molecule ID that represents the standard form of the compound, here the properties downloaded directly from PubChem or ChEMBL.">Std ID molecule:</a></label></div>
 			<div class="col-md-6"><select id="id_std_id_molecule" name="std_id_molecule" style="width:300px" placeholder=" 1">
 				<option value="" selected="selected">---------</option>
 				<option value="1">DyndbMolecule object</option>
@@ -292,7 +292,7 @@ dynamics form (step 4).</p>
 		</div>
 
 	        <div class="row">
-		<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_type"><a title="Type: Type of compound that forms part of a complex_exp.">Type:</a></label></div>
+		<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_type"><a title="Type: Type of the compound that forms part of a complex.">Type:</a></label></div>
 		<div class="col-md-4"><select id="id_type" name="type" rows="2" style="width:300px" placeholder=" Allosteric Ligand">
                                 <option selected="selected" value="1">Orthosteric ligand</option>
                                 <option value="2">Allosteric ligand</option>
@@ -314,18 +314,17 @@ dynamics form (step 4).</p>
       		</div><br>
 
 	        <div class="row">
-		<div class="col-md-2" style="height:30px"></div><div class="col-md-4"><button style="width:180px;text-align:center;margin-right:5%" type="button" onclick="alert('Hi!!!')"><a title="Set the user-uploaded molecule as the standard form for this compound">Provide standard form</a></button></div><div class="col-md-4"><button style="width:180px;text-align:center;margin-right:5%" type="button" onclick="alert('Pipol!')"><a title="Retrieve the information about this molecule which is already contained in the database or in external sources"> Get standard form</a></button></div><div class="col-md-4"></div>
-		</div><br>
-
-                
+			<div class="col-md-4" style="height:30px"></div><div class="col-md-4"><button title="Retrieve the the standard form for this compound from the database or from external sources." style="width:180px;text-align:center;margin-right:5%" type="button" ="retrieve="" the="" standard="" form="" for="" this="" compound="" from="" database="" or="" external="" sources."="" onclick="alert('Pipol!')"> Get standard form</button></div><div class="col-md-4"></div>
+		</div>
+                <div class="row">
+		<div class="col-md-4" style="height:30px"></div><div class="col-md-4"><button style="width:180px;text-align:center;margin-right:5%" type="button" onclick="alert('Hi!!!')" title="Set the user-uploaded molecule as the standard form for this compound. Please, use this button if 'get standard form' cannot retrieve an appropriate structure.">Provide standard form</button></div>
+               </div><br> 
 
                         <table align="center">
 				<tbody><tr>	<th style="width:80px;text-align:center"><label for="id_stdform"><a title="Graphical representation of the standard form of the molecule">Standard form</a></label></th>
 					<th style="width:80px;text-align:center"><label for="id_upload_mol"><a title="Graphical representation of the uploaded molecule if provided">Uploaded Molecule</a></label></th>
-				</tr><tr> 	<td style="padding:5px 5px 5px 5px">
-                                             <img alt="https://pubchem.ncbi.nlm.nih.gov/image/imagefly.cgi?cid=2818&amp;width=250&amp;height=250" src="https://pubchem.ncbi.nlm.nih.gov/image/imagefly.cgi?cid=2818&amp;width=250&amp;height=250" height="250" width="250">
-                                      </td>
-					<td style="padding:5px 5px 5px 5px"><img src="molecule_files/CLZ.png" alt="Clozapine" height="250" width="250"></td>
+				</tr><tr> 	<td style="padding:5px 5px 5px 5px"><img alt="https://pubchem.ncbi.nlm.nih.gov/image/imagefly.cgi?cid=2818&amp;width=250&amp;height=250" src="https://pubchem.ncbi.nlm.nih.gov/image/imagefly.cgi?cid=2818&amp;width=250&amp;height=250" height="250" width="250"></td>
+					<td style="padding:5px 5px 5px 5px"><img src="img/CLZ.png" alt="Clozapine" height="250" width="250"></td>
 				</tr>
 
 			</tbody></table><br>
@@ -365,7 +364,7 @@ dynamics form (step 4).</p>
 			<div class="col-md-3"><input style="width:300px" id="id_sinchikey" maxlength="27" name="sinchikey" placeholder=" ZUXABONWMNSFBN-UHFFFAOYSA-N" type="text"></div>
 		<br></div>
 	        <div class="row">
-			<div class="col-md-5" style="height:30px"></div><div class="col-md-4"><button style="width:200px;text-align:center;" type="button" onclick="alert('Hi!!!')">Get data</button></div>
+			<div class="col-md-5" style="height:30px"></div><div class="col-md-4"><button style="width:200px;text-align:center;" type="button" title="Retrieve compound information from the database or external sources searching by Standard InChIKey." onclick="alert('Hi!!!')">Get data</button></div>
 		<br><br></div>
 
 	        <div class="row">
@@ -470,7 +469,7 @@ dynamics form (step 4).</p>
 <script src="molecule_files/jquery_post.js"></script>
 
 <script src="molecule_files/toolbar.js"></script>
-<div id="djDebug" dir="ltr" data-store-id="5bc92beb85444abe9782606d6326d7cc" data-render-panel-url="/__debug__/render_panel/" style="display: block;" hidden="hidden">
+<div id="djDebug" dir="ltr" data-store-id="4fb70d84cb434d82b8fd199d613f7fbb" data-render-panel-url="/__debug__/render_panel/" style="display: block;" hidden="hidden">
 	<div id="djDebugToolbar" style="" hidden="hidden">
 		<ul id="djDebugPanelList">
 			
@@ -501,7 +500,7 @@ dynamics form (step 4).</p>
 					Time
 					
 					
-						<br><small>CPU: 227.33ms (535.66ms)</small>
+						<br><small>CPU: 302.87ms (602.98ms)</small>
 					
 					
 					
