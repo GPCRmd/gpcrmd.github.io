@@ -7,10 +7,10 @@
     <title>GPCRdb</title>
 
     <!-- Bootstrap -->
-    <link href="molecule_files/bootstrap.css" rel="stylesheet">
+    <link href="./molecule_files/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles -->
-    <link href="molecule_files/style.css" rel="stylesheet">
+    <link href="./molecule_files/style.css" rel="stylesheet">
 
     <!-- Additional CSS -->
     
@@ -37,7 +37,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/" alt="GPCRdb"><img src="molecule_files/main.png" class="main-logo"></a>
+      <a class="navbar-brand" href="/" alt="GPCRdb"><img src="./molecule_files/main.png" class="main-logo"></a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -201,24 +201,9 @@
              <h4>FILL IN THE SMALL MOLECULE FORM</h4>
 	    </div>
              <p>Please, provide information of all non-protein molecules in your system.</p>
-             <p style="text-align: justify">Small molecule information 
-contains data for compounds and molecules that are not proteins, 
-including lipids, solvent and ions. General compound information can be 
-retrieved from PubChem Compound and ChEMBL databases. User must also 
-provide information about elemental composition, connectivity, net 
-charge, protonation states and tautomerical form through uploading a MDL
- Molfile or an SDFile. Isotopical composition is optional. PubChem CIDs 
-for typical molecules as water or most common ions will be provided. 
-Coordinate information must be provided later on model (step 3) or 
-dynamics forms (step 4).</p>
+             <p style="text-align: justify">Small molecule information contains data for compounds and molecules that are not proteins, including lipids, solvent and ions. General compound information can be retrieved from PubChem Compound and ChEMBL databases. User must also provide information about elemental composition, connectivity, net charge, protonation states and tautomerical form through uploading a MDL Molfile or an SDFile. Isotopical composition is optional. PubChem CIDs for typical molecules as water or most common ions will be provided. Coordinate information must be provided later on model (step 3) or dynamics forms (step 4).</p>
 
-<p style="text-align: justify">Only molecule structures that have 
-coordinates coming from experimental data or that are crucial for the 
-setting of the simulation must be included in model by checking the 
-field “Present in model” (e. g. crystalized-like waters or very stable 
-ions, but not water molecules or ions with randomly generated 
-coordinates). Otherwise chemical structures must be included into the 
-dynamics form (step 4).</p>
+<p style="text-align: justify">Only molecule structures that have coordinates coming from experimental data or that are crucial for the setting of the simulation must be included in model by checking the field “Present in model” (e. g. crystalized-like waters or very stable ions, but not water molecules or ions with randomly generated coordinates). Otherwise chemical structures must be included into the dynamics form (step 4).</p>
 
          </div>
      </div>
@@ -247,28 +232,110 @@ dynamics form (step 4).</p>
              <h4><br>Molecule information</h4>
 	    </div><br>
 	        <div class="row">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_name"><a title="Name: First name in the list of names in PubChem or 'compound name' in ChEMBL if there is no entry in PubChem.">Name:</a></label></div>
-			<div class="col-md-6"><input style="width:300px" id="id_name" maxlength="60" name="name" placeholder=" Clozapine" type="text"></div>
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_description"><a title="Description: Description about which specific protonation, resonance state or confomation is represented in this “molecule”.">Description:</a></label></div>
+			<div class="col-md-6"><textarea cols="40" style="width:300px" id="id_description" name="description" rows="2" placeholder=" Standard form"></textarea></div>
+		<br></div>
+
+	        <div class="row">
+		<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_type"><a title="Type: Type of the compound that forms part of a complex.">Type:</a></label></div>
+		<div class="col-md-4"><select id="id_type" name="type" rows="2" style="width:300px" placeholder=" Allosteric Ligand">
+                                <option value="1">Orthosteric ligand</option>
+                                <option value="2">Allosteric ligand</option>
+                                <option value="3">Cristallographic waters</option>
+                                <option value="4">Other</option>
+                        </select></div>
+		</div><br>
+	        <div class="row">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-9"><label for="id_is_present"><a title="Important for the biological process: Check this field if the molecule is considered as a biologically relevant component of the system. Remember that only molecules that have coordinates coming from experimental data or that are crucial for the experimental hypothesis must be considered &#39;important&#39; (Provide coordinates information in step 3). Otherwise they must be included into the &#39;Dynamics form&#39;(step 4), i.e. solvent and lipid membrane molecules, ions and other molecules whose coordinates are randomly generated or not specified when building the system.">Important for the biological process:</a></label></div>
+			<div class="col-md-2"><input id="id_is_present" name="is_present" type="checkbox"></div>
+		</div><br>
+
+		<div class="row" id="PRUEBA">
+        		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-5"><label for="id_molsdf"><a title="Upload .mol, .sdf: Upload either a .mol or a .sdf file describing geometry of the small molecule"> Upload .mol, .sdf </a> </label></div>
+			<div class="col-md-6"><input id="id_molsdf" name="molsdf" style="height:25px;text-align:center;" type="file" placeholder="   "></div>
+      		</div>
+
+		<div class="row" id="PRUEBA">
+        		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-5"></div>
+			<div class="col-md-6"><button style="width:90px;height:30px;text-align:center;vertical-align:text-middle;" type="button" onclick=" ">Upload</button></div>
+      		</div><br>
+
+
+                        <table align="center">
+				<tbody><tr><th style="width:80px;text-align:center"><label for="id_upload_mol"><a title="Graphical representation of the uploaded molecule if provided">Uploaded Molecule</a></label></th>
+					<th style="width:80px;text-align:center"><label for="id_stdform"><a title="Graphical representation of the standard form of the molecule">Standard form</a></label></th>
+
+				</tr><tr><td style="padding:5px 5px 5px 5px"><img src="img/CLZ.png" alt="Clozapine" height="250" width="250"></td>
+					<td style="padding:5px 5px 5px 5px"><img alt="https://pubchem.ncbi.nlm.nih.gov/image/imagefly.cgi?cid=2818&amp;width=250&amp;height=250" src="https://pubchem.ncbi.nlm.nih.gov/image/imagefly.cgi?cid=2818&amp;width=250&amp;height=250" height="250" width="250"></td>
+				</tr>
+			</tbody></table><br>
+
+	        <div class="row">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_inchi"><a title="InChI: IUPAC International Chemical Identifier (InChI) of the molecule.">InChI:</a></label></div>
+			<div class="col-md-6"><textarea style="width:300px" cols="40" id="id_inchi" name="inchi" rows="2" placeholder=" 1S/C18H19ClN4/c1-22-8-10-23(11-9-22)18-14-4-2-3-5-15(14)20-16-7-6-13(19)12-17(16)21-18/h2-7,12,20H,8-11H2,1H3"></textarea></div>	
+		<br></div>
+
+	        <div class="row">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_sinchikey"><a title="SInChIKey: Molecule Standard InChI&#39;s hash">SInChIKey:</a></label></div>
+			<div class="col-md-3"><input style="width:300px" id="id_sinchikey" maxlength="27" name="sinchikey" type="text" placeholder=" ZUXABONWMNSFBN-UHFFFAOYSA-N"></div>
+		</div>
+
+	        <div class="row">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_net_charge"><a title="Net charge: Net charge of the molecule structure.">Net charge:</a></label></div>
+			<div class="col-md-6"><input style="width:300px" id="id_net_charge" name="net_charge" type="number" placeholder=" 0"></div>
+		<br></div>
+	
+
+	        <div class="row">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_inchikey"><a title="InChIKey: Molecule InChI&#39;s hash">InChIKey:</a></label></div>
+			<div class="col-md-3"><input style="width:300px" id="id_inchikey" maxlength="27" name="inchikey" type="text" placeholder=" ZUXABONWMNSFBN-UHFFFAOYSA-N"></div>
+		<br></div>
+	        
+	        <div class="row">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_smiles"><a title="Open SMILES: Canonical SMILES representation of the molecule.">Open SMILES:</a></label></div>
+			<div class="col-md-6"><textarea cols="40" style="width:300px" id="id_smiles" name="smiles" rows="2" placeholder=" CN1CCN(CC1)C2=Nc3cc(Cl)ccc3Nc4ccccc24"></textarea>
+		</div><br></div>
+
+		<div class="row" id="PRUEBA">
+			<div class="col-md-12" style="height:30px"><p style="font-size:12px;text-align:center">Please check chemical structure in terms of protonation state and tautomery</p></div>
+		</div>
+
+	        <div class="row">
+			<div class="col-md-4" style="height:30px"></div><div class="col-md-4"><button title="Retrieve compound information searching by Standard InChIKey." style="width:180px;text-align:center;margin-right:5%" type="button" ="retrieve="" the="" standard="" form="" for="" this="" compound="" from="" database="" or="" external="" sources."="" onclick=" "> Retrieve data </button></div><div class="col-md-4"></div>
+		</div><br>
+
+	        <div class="row">
+			<div class="col-md-1" style="height:30px"></div>
+			<div class="col-md-9"><label for="id_is_present"><a title="Check this field if you could not find the compound in these databases "> The compound is not available in PubChem and ChEMBL: </a></label></div><div class="col-md-1"><input id="id_is_present" name="is_present" type="checkbox"></div>
+		</div><br>
+
+
+
+
+
+	        <div class="row">
+			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_name"><a title="Name: First name in the list of names in PubChem or &#39;compound name&#39; in ChEMBL if there is no entry in PubChem.">Name:</a></label></div>
+			<div class="col-md-6"><input style="width:300px" id="id_name" maxlength="60" name="name" type="text" placeholder=" Clozapine"></div>
 		</div>
 			
 
 	        <div class="row">
 			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_iupac_name"><a title="IUPAC name: IUPAC name downloaded from PubChem.">IUPAC name:</a></label></div>
-			<div class="col-md-6"><input id="id_iupac_name" style="width:300px" maxlength="500" name="iupac_name" placeholder=" 3-chloro-6-(4-methylpiperazin-1-yl)-5H-benzo[b][1,4]benzodia" type="text"></div>
+			<div class="col-md-6"><input id="id_iupac_name" style="width:300px" maxlength="500" name="iupac_name" type="text" placeholder=" 3-chloro-6-(4-methylpiperazin-1-yl)-5H-benzo[b][1,4]benzodia"></div>
 		</div>
 			
 
 	        <div class="row">
 			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_pubchem_cid"><a title="PubChem cid: PubChem chemical identifier">PubChem cid:</a></label></div>
-			<div class="col-md-3"><input id="id_pubchem_cid" name="pubchem_cid" style="width:145px;margin-right:4%" placeholder=" 2818" type="number"></div>
-			<div class="col-md-3"><button style="width:145px;text-align:center;margin-left:4%;" type="button" onclick="alert('Hi!!!')">Validate</button></div>
+			<div class="col-md-3"><input id="id_pubchem_cid" name="pubchem_cid" style="width:145px;margin-right:4%" type="number" placeholder=" 2818"></div>
+			<div class="col-md-3"><button style="width:145px;text-align:center;margin-left:4%;" type="button">Retrieve</button></div>
 		</div>
 			
 
 	        <div class="row">
 			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_chembleid"><a title="ChEMBL ID: id in ChEMBL.">ChEMBL ID:</a></label></div>
-			<div class="col-md-3"><input id="id_chembleid" name="chembleid" style="width:145px;margin-right:4%" placeholder=" 42" type="number"></div>
-			<div class="col-md-3"><button style="width:145px;text-align:center;margin-left:4%" type="button" onclick="alert('Hi!!!')">Validate</button></div>
+			<div class="col-md-3"><input id="id_chembleid" name="chembleid" type="number" style="width:145px;margin-right:4%" placeholder=" 42"></div>
+			<div class="col-md-3"><button style="width:145px;text-align:center;margin-left:4%" type="button">Retrieve</button></div>
 		</div>
 
 
@@ -291,43 +358,8 @@ dynamics form (step 4).</p>
 		<textarea cols="40" id="id_other_names" name="other_names" rows="2" style="width:300px" placeholder=" Clozaril; Fazaclo; Fazaclo Odt; HF-1854"></textarea></div>
 		</div>
 
-	        <div class="row">
-		<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_type"><a title="Type: Type of the compound that forms part of a complex.">Type:</a></label></div>
-		<div class="col-md-4"><select id="id_type" name="type" rows="2" style="width:300px" placeholder=" Allosteric Ligand">
-                                <option selected="selected" value="1">Orthosteric ligand</option>
-                                <option value="2">Allosteric ligand</option>
-                                <option value="3">Cristallographic waters</option>
-                                <option value="4">Other</option>
-                        </select></div>
-		</div><br>
-	        <div class="row">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-8"><label for="id_is_present"><a title="Present in model: This molecule is considered as a part of the model. Remember that only molecules that have coordinates coming from experimental data or that are crucial for the setting of the simulation must be considered as a model element (Provide coordinates information in step 3). Otherwise they must be included into the 'Dynamics form'(step 4), i.e. solvent and lipid membrane molecules, ions and other molecules whose coordinates are randomly generated or not specified when building the system.">Present in experimental or computational model:</a></label></div>
-			<div class="col-md-3"><input id="id_is_present" name="is_present" type="checkbox"></div>
-		</div><br>
-		<div class="row" id="PRUEBA">
-        		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-5"><label for="id_molsdf"><a title="Upload .mol, .sdf: Upload either a .mol or a .sdf file describing geometry of the small molecule"> Upload .mol, .sdf </a> </label></div>
-			<div class="col-md-6"><input id="id_molsdf" name="molsdf" style="height:25px;text-align:center;" placeholder="   " type="file"></div>
-      		</div>
-		<div class="row" id="PRUEBA">
-        		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-5"></div>
-			<div class="col-md-6"><button style="width:90px;height:30px;text-align:center;vertical-align:text-middle;" type="button" onclick="alert('Upload')">Upload</button></div>
-      		</div><br>
 
-	        <div class="row">
-			<div class="col-md-4" style="height:30px"></div><div class="col-md-4"><button title="Retrieve the the standard form for this compound from the database or from external sources." style="width:180px;text-align:center;margin-right:5%" type="button" ="retrieve="" the="" standard="" form="" for="" this="" compound="" from="" database="" or="" external="" sources."="" onclick="alert('Pipol!')"> Get standard form</button></div><div class="col-md-4"></div>
-		</div>
-                <div class="row">
-		<div class="col-md-4" style="height:30px"></div><div class="col-md-4"><button style="width:180px;text-align:center;margin-right:5%" type="button" onclick="alert('Hi!!!')" title="Set the user-uploaded molecule as the standard form for this compound. Please, use this button if 'get standard form' cannot retrieve an appropriate structure.">Provide standard form</button></div>
-               </div><br> 
 
-                        <table align="center">
-				<tbody><tr>	<th style="width:80px;text-align:center"><label for="id_stdform"><a title="Graphical representation of the standard form of the molecule">Standard form</a></label></th>
-					<th style="width:80px;text-align:center"><label for="id_upload_mol"><a title="Graphical representation of the uploaded molecule if provided">Uploaded Molecule</a></label></th>
-				</tr><tr> 	<td style="padding:5px 5px 5px 5px"><img alt="https://pubchem.ncbi.nlm.nih.gov/image/imagefly.cgi?cid=2818&amp;width=250&amp;height=250" src="https://pubchem.ncbi.nlm.nih.gov/image/imagefly.cgi?cid=2818&amp;width=250&amp;height=250" height="250" width="250"></td>
-					<td style="padding:5px 5px 5px 5px"><img src="img/CLZ.png" alt="Clozapine" height="250" width="250"></td>
-				</tr>
-
-			</tbody></table><br>
 
 
 
@@ -344,44 +376,7 @@ dynamics form (step 4).</p>
 			</select></div>
 		<br></div>	-->
 
-	        <div class="row">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_description"><a title="Description: Description about which specific protonation, resonance state or confomation is represented in this “molecule”.">Description:</a></label></div>
-			<div class="col-md-6"><textarea cols="40" style="width:300px" id="id_description" name="description" rows="2" placeholder=" Standard form"></textarea></div>
-		<br></div>
 
-	        <div class="row">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_net_charge"><a title="Net charge: Net charge of the molecule structure.">Net charge:</a></label></div>
-			<div class="col-md-6"><input style="width:300px" id="id_net_charge" name="net_charge" placeholder=" 0" type="number"></div>
-		<br></div>
-	
-	        <div class="row">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_inchi"><a title="InChI: IUPAC International Chemical Identifier (InChI) of the molecule.">InChI:</a></label></div>
-			<div class="col-md-6"><textarea style="width:300px" cols="40" id="id_inchi" name="inchi" rows="2" placeholder=" 1S/C18H19ClN4/c1-22-8-10-23(11-9-22)18-14-4-2-3-5-15(14)20-16-7-6-13(19)12-17(16)21-18/h2-7,12,20H,8-11H2,1H3"></textarea></div>	
-		<br></div>
-
-	        <div class="row">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_sinchikey"><a title="SInChIKey: Molecule Standard InChI's hash">SInChIKey:</a></label></div>
-			<div class="col-md-3"><input style="width:300px" id="id_sinchikey" maxlength="27" name="sinchikey" placeholder=" ZUXABONWMNSFBN-UHFFFAOYSA-N" type="text"></div>
-		<br></div>
-	        <div class="row">
-			<div class="col-md-5" style="height:30px"></div><div class="col-md-4"><button style="width:200px;text-align:center;" type="button" title="Retrieve compound information from the database or external sources searching by Standard InChIKey." onclick="alert('Hi!!!')">Get data</button></div>
-		<br><br></div>
-
-	        <div class="row">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_inchikey"><a title="InChIKey: Molecule InChI's hash">InChIKey:</a></label></div>
-			<div class="col-md-3"><input style="width:300px" id="id_inchikey" maxlength="27" name="inchikey" placeholder=" ZUXABONWMNSFBN-UHFFFAOYSA-N" type="text"></div>
-		<br></div>
-	        
-
-<!--	        <div class="row">
-			<div class="col-md-1"style="height:30px"></div><div class="col-md-3"><label for="id_inchicol"><a title="The default value of this column is '1'. The value has to be incremented in case of collision of several InChIKeys in order that “InChIkey” + “InChIcol” values are always unique.">InChIcol:</a></label></div>
-			<div class="col-md-6"><input style="width:300px" id="id_inchicol" name="inchicol" type="number" placeholder="   "/></div>
-		<br></div> -->
-
-	        <div class="row">
-			<div class="col-md-1" style="height:30px"></div><div class="col-md-3"><label for="id_smiles"><a title="Open SMILES: Canonical SMILES representation of the molecule.">Open SMILES:</a></label></div>
-			<div class="col-md-6"><textarea cols="40" style="width:300px" id="id_smiles" name="smiles" rows="2" placeholder=" CN1CCN(CC1)C2=Nc3cc(Cl)ccc3Nc4ccccc24"></textarea>
-		</div><br></div>
 
 			<br>
  			<div style="text-align:center">
@@ -451,33 +446,33 @@ dynamics form (step 4).</p>
     </form></div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="molecule_files/jquery.js"></script>
+    <script src="./molecule_files/jquery.js"></script>
     <!-- jQueryUI -->
-    <link rel="stylesheet" href="molecule_files/jquery-ui.css" type="text/css" media="all">
-    <link rel="stylesheet" href="molecule_files/jquery-ui_002.css" type="text/css" media="all">
-    <script src="molecule_files/jquery-ui.js"></script>
-    <script src="molecule_files/bootstrap.js"></script>
+    <link rel="stylesheet" href="./molecule_files/jquery-ui.min.css" type="text/css" media="all">
+    <link rel="stylesheet" href="./molecule_files/jquery-ui.theme.min.css" type="text/css" media="all">
+    <script src="./molecule_files/jquery-ui.min.js"></script>
+    <script src="./molecule_files/bootstrap.min.js"></script>
     <!-- Include custom ajax functions -->
     
   
-<link rel="stylesheet" href="molecule_files/print.css" type="text/css" media="print">
-<link rel="stylesheet" href="molecule_files/toolbar.css" type="text/css">
+<link rel="stylesheet" href="./molecule_files/print.css" type="text/css" media="print">
+<link rel="stylesheet" href="./molecule_files/toolbar.css" type="text/css">
 
 <!-- Prevent our copy of jQuery from registering as an AMD module on sites that use RequireJS. -->
-<script src="molecule_files/jquery_pre.js"></script>
-<script src="molecule_files/jquery_002.js"></script>
-<script src="molecule_files/jquery_post.js"></script>
+<script src="./molecule_files/jquery_pre.js"></script>
+<script src="./molecule_files/jquery.min.js"></script>
+<script src="./molecule_files/jquery_post.js"></script>
 
-<script src="molecule_files/toolbar.js"></script>
-<div id="djDebug" dir="ltr" data-store-id="4fb70d84cb434d82b8fd199d613f7fbb" data-render-panel-url="/__debug__/render_panel/" style="display: block;" hidden="hidden">
-	<div id="djDebugToolbar" style="" hidden="hidden">
+<script src="./molecule_files/toolbar.js"></script>
+<div id="djDebug" hidden="hidden" dir="ltr" data-store-id="be951f47854d427a95ec978ca9cdd93f" data-render-panel-url="/__debug__/render_panel/" style="display: block;">
+	<div hidden="hidden" id="djDebugToolbar" style="">
 		<ul id="djDebugPanelList">
 			
 			<li><a id="djHideToolBarButton" href="/dynadb/molecule/#" title="Hide toolbar">Hide »</a></li>
 			
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtVersionsPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtVersionsPanel" checked="checked" title="Disable for next and successive requests">
 					
 						<a href="/dynadb/molecule/#" title="Versions" class="VersionsPanel">
 					
@@ -493,14 +488,14 @@ dynamics form (step 4).</p>
 				</li>
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtTimerPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtTimerPanel" checked="checked" title="Disable for next and successive requests">
 					
 						<a href="/dynadb/molecule/#" title="Time" class="TimerPanel">
 					
 					Time
 					
 					
-						<br><small>CPU: 302.87ms (602.98ms)</small>
+						<br><small>CPU: 364.80ms (728.20ms)</small>
 					
 					
 					
@@ -509,7 +504,7 @@ dynamics form (step 4).</p>
 				</li>
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtSettingsPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtSettingsPanel" checked="checked" title="Disable for next and successive requests">
 					
 						<a href="/dynadb/molecule/#" title="Settings from &lt;code&gt;protwis.settings&lt;/code&gt;" class="SettingsPanel">
 					
@@ -525,7 +520,7 @@ dynamics form (step 4).</p>
 				</li>
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtHeadersPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtHeadersPanel" checked="checked" title="Disable for next and successive requests">
 					
 						<a href="/dynadb/molecule/#" title="Headers" class="HeadersPanel">
 					
@@ -541,7 +536,7 @@ dynamics form (step 4).</p>
 				</li>
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtRequestPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtRequestPanel" checked="checked" title="Disable for next and successive requests">
 					
 						<a href="/dynadb/molecule/#" title="Request" class="RequestPanel">
 					
@@ -557,7 +552,7 @@ dynamics form (step 4).</p>
 				</li>
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtSQLPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtSQLPanel" checked="checked" title="Disable for next and successive requests">
 					
 						<a href="/dynadb/molecule/#" title="SQL queries from 0 connections" class="SQLPanel">
 					
@@ -573,9 +568,9 @@ dynamics form (step 4).</p>
 				</li>
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtStaticFilesPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtStaticFilesPanel" checked="checked" title="Disable for next and successive requests">
 					
-						<a href="/dynadb/molecule/#" title="Static files (424 found, 8 used)" class="StaticFilesPanel">
+						<a href="/dynadb/molecule/#" title="Static files (431 found, 8 used)" class="StaticFilesPanel">
 					
 					Static files
 					
@@ -589,7 +584,7 @@ dynamics form (step 4).</p>
 				</li>
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtTemplatesPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtTemplatesPanel" checked="checked" title="Disable for next and successive requests">
 					
 						<a href="/dynadb/molecule/#" title="Templates (5 rendered)" class="TemplatesPanel">
 					
@@ -605,7 +600,7 @@ dynamics form (step 4).</p>
 				</li>
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtCachePanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtCachePanel" checked="checked" title="Disable for next and successive requests">
 					
 						<a href="/dynadb/molecule/#" title="Cache calls from 1 backend" class="CachePanel">
 					
@@ -621,7 +616,7 @@ dynamics form (step 4).</p>
 				</li>
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtSignalsPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtSignalsPanel" checked="checked" title="Disable for next and successive requests">
 					
 						<a href="/dynadb/molecule/#" title="Signals" class="SignalsPanel">
 					
@@ -637,7 +632,7 @@ dynamics form (step 4).</p>
 				</li>
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtLoggingPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtLoggingPanel" checked="checked" title="Disable for next and successive requests">
 					
 						<a href="/dynadb/molecule/#" title="Log messages" class="LoggingPanel">
 					
@@ -653,7 +648,7 @@ dynamics form (step 4).</p>
 				</li>
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtRedirectsPanel" title="Enable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtRedirectsPanel" title="Enable for next and successive requests">
 					
 						<div class="djdt-contentless djdt-disabled">
 					
@@ -666,7 +661,7 @@ dynamics form (step 4).</p>
 			
 		</ul>
 	</div>
-	<div id="djDebugToolbarHandle" style="display: block;" hidden="hidden">
+	<div hidden="hidden" id="djDebugToolbarHandle" style="display: block;">
 		<span title="Show toolbar" id="djShowToolBarButton">«</span>
 	</div>
 	
@@ -678,7 +673,7 @@ dynamics form (step 4).</p>
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="molecule_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="./molecule_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -693,7 +688,7 @@ dynamics form (step 4).</p>
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="molecule_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="./molecule_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -708,7 +703,7 @@ dynamics form (step 4).</p>
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="molecule_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="./molecule_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -723,7 +718,7 @@ dynamics form (step 4).</p>
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="molecule_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="./molecule_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -738,7 +733,7 @@ dynamics form (step 4).</p>
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="molecule_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="./molecule_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -753,7 +748,7 @@ dynamics form (step 4).</p>
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="molecule_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="./molecule_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -764,11 +759,11 @@ dynamics form (step 4).</p>
 			<div id="StaticFilesPanel" class="djdt-panelContent" style="display: none;">
 				<div class="djDebugPanelTitle">
 					<a href="/dynadb/molecule/" class="djDebugClose"></a>
-					<h3>Static files (424 found, 8 used)</h3>
+					<h3>Static files (431 found, 8 used)</h3>
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="molecule_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="./molecule_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -783,7 +778,7 @@ dynamics form (step 4).</p>
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="molecule_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="./molecule_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -798,7 +793,7 @@ dynamics form (step 4).</p>
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="molecule_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="./molecule_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -813,7 +808,7 @@ dynamics form (step 4).</p>
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="molecule_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="./molecule_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -828,7 +823,7 @@ dynamics form (step 4).</p>
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="molecule_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="./molecule_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>

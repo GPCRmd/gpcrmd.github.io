@@ -7,10 +7,10 @@
     <title>GPCRdb</title>
 
     <!-- Bootstrap -->
-    <link href="dynamics_files/bootstrap.css" rel="stylesheet">
+    <link href="./dynamics_files/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles -->
-    <link href="dynamics_files/style.css" rel="stylesheet">
+    <link href="./dynamics_files/style.css" rel="stylesheet">
 
     <!-- Additional CSS -->
     
@@ -37,7 +37,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/" alt="GPCRdb"><img src="dynamics_files/main.png" class="main-logo"></a>
+      <a class="navbar-brand" href="/" alt="GPCRdb"><img src="./dynamics_files/main.png" class="main-logo"></a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -197,11 +197,7 @@
              <h4>FILL IN THE DYNAMICS FORM</h4>
             </div>
              <p style="text-align: justify;">Fill in the following form concerning specific details on the MD simulation protocol. </p>
-             <p style="text-align: justify;">User must provide molecular
- dynamics metadata as well as files required to rerun simulations in a 
-specific simulation software (coordinates, topology, parameters, 
-others). Note, it is mandatory to add files needed to regenerate 
-topology files that are not published elsewhere.</p>
+             <p style="text-align: justify;">User must provide molecular dynamics metadata as well as files required to rerun simulations in a specific simulation software (coordinates, topology, parameters, others). Note, it is mandatory to add files needed to regenerate topology files that are not published elsewhere.</p>
          </div>
      </div>
 
@@ -250,22 +246,22 @@ topology files that are not published elsewhere.</p>
 
 	        <div class="row">
         		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-3"><label for="id_software"> <a title="Software: Name of the software used to compute the simulations (without version)."> Software: </a> </label></div>
-			<div class="col-md-6"><input id="id_software" maxlength="30" name="software" style="width:300px" placeholder=" ACEMD" type="text"></div>
+			<div class="col-md-6"><input id="id_software" maxlength="30" name="software" type="text" style="width:300px" placeholder=" ACEMD"></div>
 		<br></div>	
 
 	        <div class="row">
 	        	 <div class="col-md-1" style="height:30px"> </div><div class="col-md-3"><label for="id_sversion"> <a title="Software version: Version of the software used to compute the simulations."> Software version: </a></label></div>
-			<div class="col-md-6"><input id="id_sversion" maxlength="15" name="sversion" style="width:300p" placeholder=" 3212M" type="text"></div>
+			<div class="col-md-6"><input id="id_sversion" maxlength="15" name="sversion" type="text" style="width:300p" placeholder=" 3212M"></div>
 		<br></div>
 
 	        <div class="row">
         		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-3"><label for="id_ff"> <a title="Force Field: Name of the force-field used to compute the simulations (without version)."> Force Field: </a> </label></div>
-			<div class="col-md-6"><input id="id_ff" maxlength="20" name="ff" style="width:300px" placeholder=" CHARMM " type="text"></div>
+			<div class="col-md-6"><input id="id_ff" maxlength="20" name="ff" type="text" style="width:300px" placeholder=" CHARMM "></div>
 		<br></div>
 
 	        <div class="row">
 	        	 <div class="col-md-1" style="height:30px"> </div><div class="col-md-3"><label for="id_ffversion"> <a title="FF version: Version of the force field used to compute the simulations."> FF version: </a> </label> </div>
-			<div class="col-md-6"><input id="id_ffversion" maxlength="15" name="ffversion" style="width:300px" placeholder=" 36  " type="text"></div>
+			<div class="col-md-6"><input id="id_ffversion" maxlength="15" name="ffversion" type="text" style="width:300px" placeholder=" 36  "></div>
 		<br></div>
 
 	        <div class="row">
@@ -276,7 +272,7 @@ topology files that are not published elsewhere.</p>
 	        <div class="row">
         		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-3"><label for="id_id_assay_types"><a title="Assay type: Classification of simulations according to an equivalent experimental assay."> Assay type:</a> </label></div>
 			<div class="col-md-6"><select id="id_id_assay_types" name="id_assay_types" style="width:300px" placeholder="  "> 
-		        	<option selected="selected" value="0">Protein stability</option> 
+		        	<option value="0">Protein stability</option> 
 			        <option value="1">Orthosteric binding/unbinding</option>
 			        <option value="2">Allosteric binding/unbinding</option>
 			        <option value="3">Activation/Inactivation/Modulation</option>
@@ -288,7 +284,7 @@ topology files that are not published elsewhere.</p>
 	        <div class="row">
 	        	 <div class="col-md-1" style="height:30px"> </div><div class="col-md-3"><label for="id_id_dynamics_membrane_types"><a title="Membrane type: Type of membrane used in the simulation."> Membrane type:</a> </label></div>
 			<div class="col-md-6"><select id="id_id_dynamics_membrane_types" name="id_dynamics_membrane_types" style="width:300px" placeholder="  ">
-        			<option selected="selected" value="1">Implicit</option>
+        			<option value="1">Implicit</option>
 			        <option value="2">Homogeneous</option>
 			        <option value="3">Heterogeneous</option>
 		        </select></div>
@@ -297,7 +293,7 @@ topology files that are not published elsewhere.</p>
 	        <div class="row">
         		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-3"><label for="id_id_dynamics_solvent_types"><a title="Solvent type: Type of solvent used in the simulation. "> Solvent type:</a> </label></div>
 			<div class="col-md-6"><select id="id_id_dynamics_solvent_types" name="id_dynamics_solvent_types" style="width:300px" placeholder="  ">
-		        	<option selected="selected" value="0">TIP3P</option>
+		        	<option value="0">TIP3P</option>
 			        <option value="1">Implicit</option>
 			        <option value="2">TIP4P</option>
 		        	<option value="3">TIPS</option>
@@ -309,7 +305,7 @@ topology files that are not published elsewhere.</p>
 
 	        <div class="row">
         		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-3"><label for="id_solvent_num"><a title="Solvent num: Number of solvent molecules">Solvent num:</a> </label></div>
-			<div class="col-md-6"><input id="id_solvent_num" name="solvent_num" style="width:300px" placeholder=" 10000 " type="number"></div>
+			<div class="col-md-6"><input id="id_solvent_num" name="solvent_num" type="number" style="width:300px" placeholder=" 10000 "></div>
 		<br></div><br>
 
 
@@ -322,22 +318,22 @@ topology files that are not published elsewhere.</p>
 
 		<div class="row" id="PRUEBA">
         		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-5"><label for="id_coor"><a title="Input coordinates: Upload the initial coordinates file of the system. Input coor (.pdb) max 50 MB"> Input coordinates (coor)</a> </label></div>
-			<div class="col-md-6"><input id="id_coor" name="coor" accept="file_extension|.pdb" type="file"></div>
+			<div class="col-md-6"><input id="id_coor" name="coor" type="file" accept="file_extension|.pdb"></div>
       		</div>
 
 		<div class="row" id="PRUEBA">
         		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-5"><label for="id_top"><a title=" Input topology: Upload the file describing the topology of your system. Top (.psf, .prmtop, .top, other) max 50 MB"> Input topology (top)</a> </label></div>
-			<div class="col-md-6"><input id="id_top" name="top" accept="file_extension|.rtf,.psf,.pmtop,.top" type="file"></div>
+			<div class="col-md-6"><input id="id_top" name="top" type="file" accept="file_extension|.rtf,.psf,.pmtop,.top"></div>
       		</div>
 
 		<div class="row" id="PRUEBA">
         		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-5"><label for="id_traj"><a title="Trajectory: Upload the file containing the evolution of the system coordinates with time. Traj (.dcd, .xtc) max. 2 GB"> Trajectory (traj)</a> </label></div>
-			<div class="col-md-6"><input id="id_traj" name="traj" accept="file_extension|.dcd,.xtc" type="file"></div>
+			<div class="col-md-6"><input id="id_traj" name="traj" type="file" accept="file_extension|.dcd,.xtc"></div>
       		</div>
 
 		<div class="row" id="PRUEBA">
         		 <div class="col-md-1" style="height:30px"> </div><div class="col-md-5"><label for="id_parm"><a title=" Simulation parameters: Upload the file containing the force field parameters. Param (.tar.gz,.tgz) max 50 MB"> Simulation parameters (param)</a> </label></div>
-			<div class="col-md-6"><input id="id_parm" name="parm" accept="file_extension|.tar.gz,.tgz" type="file"></div>
+			<div class="col-md-6"><input id="id_parm" name="parm" type="file" accept="file_extension|.tar.gz,.tgz"></div>
       		</div>
 
 		<div class="row" id="PRUEBA">
@@ -365,8 +361,8 @@ topology files that are not published elsewhere.</p>
 					<th style="width:80px;text-align:center"><label for="id_numberofmol"><a title="Number of molecules: Number of molecules belonging to a specific residue type present on simulation topology. ">Num of mol</a></label></th>
 					<th style="width:80px;text-align:center"><label for="id_type"><a title="Type: Type of compound/molecule present in the simulation.">Type</a></label></th>
 
-				</tr><tr>	<td style="padding:5px 5px 5px 5px"><input style="width:70px" id="id_resname" maxlength="4" name="resname" placeholder=" CLOZ" type="text"></td>
-					<td style="padding:5px 5px 5px 5px"><input style="width:70px" id="molecule" maxlength="4" name="molecule" placeholder=" 1 " type="text"></td>
+				</tr><tr>	<td style="padding:5px 5px 5px 5px"><input style="width:70px" id="id_resname" maxlength="4" name="resname" type="text" placeholder=" CLOZ"></td>
+					<td style="padding:5px 5px 5px 5px"><input style="width:70px" id="molecule" maxlength="4" name="molecule" type="text" placeholder=" 1 "></td>
 					<td style="padding:5px 5px 5px 5px"><select style="width:70px" id="id_id_molecule" name="id_molecule">
 						<option value="" selected="selected">---------</option>
 						<option value="1">DyndbMolecule object</option>
@@ -377,8 +373,8 @@ topology files that are not published elsewhere.</p>
 						<option value="7">DyndbMolecule object</option>
 						<option value="2">DyndbMolecule object</option>
 						</select></td>
-					<td style="padding:5px 5px 5px 5px"><input id="id_name" maxlength="60" name="name" style="width:70px" placeholder="Clozapine" type="text"></td>
-					<td style="padding:5px 5px 5px 5px"><input id="id_numberofmol" min="0" name="numberofmol" style="width:70px" placeholder=" 2" type="number"></td>
+					<td style="padding:5px 5px 5px 5px"><input id="id_name" maxlength="60" name="name" type="text" style="width:70px" placeholder="Clozapine"></td>
+					<td style="padding:5px 5px 5px 5px"><input id="id_numberofmol" min="0" name="numberofmol" type="number" style="width:70px" placeholder=" 2"></td>
 					<td style="padding:5px 5px 5px 5px"><select id="id_type" name="type" style="width:60px">
 						<option value="Ions" selected="selected">Ions</option>
 						<option value="Ligand">Ligand</option>
@@ -427,33 +423,33 @@ topology files that are not published elsewhere.</p>
     </form></div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="dynamics_files/jquery.js"></script>
+    <script src="./dynamics_files/jquery.js"></script>
     <!-- jQueryUI -->
-    <link rel="stylesheet" href="dynamics_files/jquery-ui.css" type="text/css" media="all">
-    <link rel="stylesheet" href="dynamics_files/jquery-ui_002.css" type="text/css" media="all">
-    <script src="dynamics_files/jquery-ui.js"></script>
-    <script src="dynamics_files/bootstrap.js"></script>
+    <link rel="stylesheet" href="./dynamics_files/jquery-ui.min.css" type="text/css" media="all">
+    <link rel="stylesheet" href="./dynamics_files/jquery-ui.theme.min.css" type="text/css" media="all">
+    <script src="./dynamics_files/jquery-ui.min.js"></script>
+    <script src="./dynamics_files/bootstrap.min.js"></script>
     <!-- Include custom ajax functions -->
     
   
-<link rel="stylesheet" href="dynamics_files/print.css" type="text/css" media="print">
-<link rel="stylesheet" href="dynamics_files/toolbar.css" type="text/css">
+<link rel="stylesheet" href="./dynamics_files/print.css" type="text/css" media="print">
+<link rel="stylesheet" href="./dynamics_files/toolbar.css" type="text/css">
 
 <!-- Prevent our copy of jQuery from registering as an AMD module on sites that use RequireJS. -->
-<script src="dynamics_files/jquery_pre.js"></script>
-<script src="dynamics_files/jquery_002.js"></script>
-<script src="dynamics_files/jquery_post.js"></script>
+<script src="./dynamics_files/jquery_pre.js"></script>
+<script src="./dynamics_files/jquery.min.js"></script>
+<script src="./dynamics_files/jquery_post.js"></script>
 
-<script src="dynamics_files/toolbar.js"></script>
-<div id="djDebug" dir="ltr" data-store-id="9d44da3c4a294c70b9a97deb486143dc" data-render-panel-url="/__debug__/render_panel/" style="display: block;" hidden="hidden">
-	<div id="djDebugToolbar" style="" hidden="hidden">
+<script src="./dynamics_files/toolbar.js"></script>
+<div id="djDebug" hidden="hidden" dir="ltr" data-store-id="d48f52586b094130bc0b1da461fe01a2" data-render-panel-url="/__debug__/render_panel/" style="display: block;">
+	<div hidden="hidden" id="djDebugToolbar" style="">
 		<ul id="djDebugPanelList">
 			
 			<li><a id="djHideToolBarButton" href="/dynadb/dynamics/#" title="Hide toolbar">Hide »</a></li>
 			
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtVersionsPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtVersionsPanel" checked="checked" title="Disable for next and successive requests">
 					
 						<a href="/dynadb/dynamics/#" title="Versions" class="VersionsPanel">
 					
@@ -469,14 +465,14 @@ topology files that are not published elsewhere.</p>
 				</li>
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtTimerPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtTimerPanel" checked="checked" title="Disable for next and successive requests">
 					
 						<a href="/dynadb/dynamics/#" title="Time" class="TimerPanel">
 					
 					Time
 					
 					
-						<br><small>CPU: 222.00ms (635.29ms)</small>
+						<br><small>CPU: 361.06ms (734.82ms)</small>
 					
 					
 					
@@ -485,7 +481,7 @@ topology files that are not published elsewhere.</p>
 				</li>
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtSettingsPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtSettingsPanel" checked="checked" title="Disable for next and successive requests">
 					
 						<a href="/dynadb/dynamics/#" title="Settings from &lt;code&gt;protwis.settings&lt;/code&gt;" class="SettingsPanel">
 					
@@ -501,7 +497,7 @@ topology files that are not published elsewhere.</p>
 				</li>
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtHeadersPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtHeadersPanel" checked="checked" title="Disable for next and successive requests">
 					
 						<a href="/dynadb/dynamics/#" title="Headers" class="HeadersPanel">
 					
@@ -517,7 +513,7 @@ topology files that are not published elsewhere.</p>
 				</li>
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtRequestPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtRequestPanel" checked="checked" title="Disable for next and successive requests">
 					
 						<a href="/dynadb/dynamics/#" title="Request" class="RequestPanel">
 					
@@ -533,7 +529,7 @@ topology files that are not published elsewhere.</p>
 				</li>
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtSQLPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtSQLPanel" checked="checked" title="Disable for next and successive requests">
 					
 						<a href="/dynadb/dynamics/#" title="SQL queries from 0 connections" class="SQLPanel">
 					
@@ -549,9 +545,9 @@ topology files that are not published elsewhere.</p>
 				</li>
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtStaticFilesPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtStaticFilesPanel" checked="checked" title="Disable for next and successive requests">
 					
-						<a href="/dynadb/dynamics/#" title="Static files (424 found, 8 used)" class="StaticFilesPanel">
+						<a href="/dynadb/dynamics/#" title="Static files (431 found, 8 used)" class="StaticFilesPanel">
 					
 					Static files
 					
@@ -565,7 +561,7 @@ topology files that are not published elsewhere.</p>
 				</li>
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtTemplatesPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtTemplatesPanel" checked="checked" title="Disable for next and successive requests">
 					
 						<a href="/dynadb/dynamics/#" title="Templates (5 rendered)" class="TemplatesPanel">
 					
@@ -581,7 +577,7 @@ topology files that are not published elsewhere.</p>
 				</li>
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtCachePanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtCachePanel" checked="checked" title="Disable for next and successive requests">
 					
 						<a href="/dynadb/dynamics/#" title="Cache calls from 1 backend" class="CachePanel">
 					
@@ -597,7 +593,7 @@ topology files that are not published elsewhere.</p>
 				</li>
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtSignalsPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtSignalsPanel" checked="checked" title="Disable for next and successive requests">
 					
 						<a href="/dynadb/dynamics/#" title="Signals" class="SignalsPanel">
 					
@@ -613,7 +609,7 @@ topology files that are not published elsewhere.</p>
 				</li>
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtLoggingPanel" checked="checked" title="Disable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtLoggingPanel" checked="checked" title="Disable for next and successive requests">
 					
 						<a href="/dynadb/dynamics/#" title="Log messages" class="LoggingPanel">
 					
@@ -629,7 +625,7 @@ topology files that are not published elsewhere.</p>
 				</li>
 			
 				<li class="djDebugPanelButton">
-					<input data-cookie="djdtRedirectsPanel" title="Enable for next and successive requests" type="checkbox">
+					<input type="checkbox" data-cookie="djdtRedirectsPanel" title="Enable for next and successive requests">
 					
 						<div class="djdt-contentless djdt-disabled">
 					
@@ -642,7 +638,7 @@ topology files that are not published elsewhere.</p>
 			
 		</ul>
 	</div>
-	<div id="djDebugToolbarHandle" style="display: block;" hidden="hidden">
+	<div hidden="hidden" id="djDebugToolbarHandle" style="display: block;">
 		<span title="Show toolbar" id="djShowToolBarButton">«</span>
 	</div>
 	
@@ -654,7 +650,7 @@ topology files that are not published elsewhere.</p>
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="dynamics_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="./dynamics_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -669,7 +665,7 @@ topology files that are not published elsewhere.</p>
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="dynamics_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="./dynamics_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -684,7 +680,7 @@ topology files that are not published elsewhere.</p>
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="dynamics_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="./dynamics_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -699,7 +695,7 @@ topology files that are not published elsewhere.</p>
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="dynamics_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="./dynamics_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -714,7 +710,7 @@ topology files that are not published elsewhere.</p>
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="dynamics_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="./dynamics_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -729,7 +725,7 @@ topology files that are not published elsewhere.</p>
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="dynamics_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="./dynamics_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -740,11 +736,11 @@ topology files that are not published elsewhere.</p>
 			<div id="StaticFilesPanel" class="djdt-panelContent" style="display: none;">
 				<div class="djDebugPanelTitle">
 					<a href="/dynadb/dynamics/" class="djDebugClose"></a>
-					<h3>Static files (424 found, 8 used)</h3>
+					<h3>Static files (431 found, 8 used)</h3>
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="dynamics_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="./dynamics_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -759,7 +755,7 @@ topology files that are not published elsewhere.</p>
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="dynamics_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="./dynamics_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -774,7 +770,7 @@ topology files that are not published elsewhere.</p>
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="dynamics_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="./dynamics_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -789,7 +785,7 @@ topology files that are not published elsewhere.</p>
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="dynamics_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="./dynamics_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
@@ -804,7 +800,7 @@ topology files that are not published elsewhere.</p>
 				</div>
 				<div class="djDebugPanelContent">
 					
-					<img src="dynamics_files/ajax-loader.gif" alt="loading" class="djdt-loader">
+					<img src="./dynamics_files/ajax-loader.gif" alt="loading" class="djdt-loader">
 					<div class="djdt-scroll"></div>
 					
 				</div>
